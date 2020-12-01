@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class shipController : MonoBehaviour
 {
-    public float maxSpeed = 12f;
+    public float maxSpeed = 2f;
     // instantane Bewegung oder mit Beschleunigung
     public bool analog = true;
 
