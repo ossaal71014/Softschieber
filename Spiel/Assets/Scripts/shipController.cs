@@ -23,6 +23,8 @@ public class shipController : MonoBehaviour
 
     public ParticleSystem antrieb;
 
+    public int leben = 3;
+
     // wird vor Startfunktion einmalig ausgeführt
     void Awake()
     {
