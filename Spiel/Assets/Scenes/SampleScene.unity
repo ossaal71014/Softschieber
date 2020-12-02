@@ -10204,7 +10204,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 592832497}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1309114108
+--- !u!114 &1309114109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15189,7 +15189,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 592832497}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2071012457
+--- !u!114 &2071012458
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15414,6 +15414,11 @@ PrefabInstance:
     - target: {fileID: 5813666201136485656, guid: 0566bf54158107b4d80bffad4b840fe3,
         type: 3}
       propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813666201136485658, guid: 0566bf54158107b4d80bffad4b840fe3,
+        type: 3}
+      propertyPath: m_MotionVectors
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5813666201136485660, guid: 0566bf54158107b4d80bffad4b840fe3,
