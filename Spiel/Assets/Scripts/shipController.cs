@@ -129,6 +129,7 @@ public class shipController : MonoBehaviour
         }
     }
 
+    //Treffer-Funktion zieht Schiff leben ab bei Kollision mit Gegner
     void Treffer(int schaden)
     {
         leben -= schaden;
