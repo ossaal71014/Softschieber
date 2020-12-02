@@ -15,6 +15,10 @@ public class abschuss : MonoBehaviour
     void Update()
     {
         //Abfrage: Bei Tastendruck der zugeordneten Aktion "Fire1" (Linke-Maustaste Default) soll Projektil abgefeuert werden
-
+        if (Input.GetButtonDown("Fire1"))
+        {
+            //Schuss wird abgefeuert
+            Instantiate(typ1, transform.position, Quaternion.identity);
+        }
     }
 }
