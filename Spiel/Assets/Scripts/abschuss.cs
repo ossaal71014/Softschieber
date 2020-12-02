@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class abschuss : MonoBehaviour
 {
+    public GameObject typ1;                             //schuss1 (Projektil)
     // Start is called before the first frame update
     void Start()
     {
