@@ -4829,12 +4829,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a0fad8bde8adf984c90a525313f0f69d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50a0744448c8cde45867c2ced107c29f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.28, y: 1.28}
+  m_Size: {x: 0.85333335, y: 0.85333335}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4879,37 +4879,25 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.85333335, y: 0.85333335}
-    newSize: {x: 1.28, y: 1.28}
+    newSize: {x: 0.85333335, y: 0.85333335}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.42, y: -0.32}
-      - {x: 0.47, y: -0.29999998}
-      - {x: 0.4543415, y: -0.25}
-      - {x: 0.35999998, y: -0.03}
-      - {x: 0.119760305, y: 0.33516753}
-      - {x: 0.100426905, y: 0.36217073}
-      - {x: 0.083886296, y: 0.40939417}
-      - {x: 0.06, y: 0.52}
-      - {x: 0.02, y: 0.59999996}
-      - {x: -0.01, y: 0.59999996}
-      - {x: -0.04042689, y: 0.5165121}
-      - {x: -0.08, y: 0.41}
-      - {x: -0.37825605, y: -0.119573206}
-      - {x: -0.45999998, y: -0.26999998}
-      - {x: -0.45999998, y: -0.29999998}
-      - {x: -0.16921991, y: -0.34405726}
-      - {x: -0.21, y: -0.42}
-      - {x: -0.19, y: -0.47}
-      - {x: -0.17, y: -0.47}
-      - {x: -0.099999994, y: -0.45999998}
-      - {x: -0.04, y: -0.47}
-      - {x: 0.08, y: -0.47}
-      - {x: 0.19, y: -0.45999998}
-      - {x: 0.21, y: -0.42999998}
+    - - {x: 0.09517735, y: -0.2097491}
+      - {x: 0.30373767, y: -0.20628849}
+      - {x: 0.30319396, y: -0.1955868}
+      - {x: -0.0012892187, y: 0.38546145}
+      - {x: -0.04260117, y: 0.2696867}
+      - {x: -0.29965377, y: -0.1864897}
+      - {x: -0.30582935, y: -0.19744909}
+      - {x: -0.105658635, y: -0.20638406}
+      - {x: -0.13673444, y: -0.29769167}
+      - {x: -0.0651017, y: -0.28862283}
+      - {x: -0.01866752, y: -0.3157556}
+      - {x: 0.051437408, y: -0.2907735}
       - {x: 0.16, y: -0.32}
 --- !u!114 &8894391262679882942
 MonoBehaviour:
@@ -4926,6 +4914,8 @@ MonoBehaviour:
   maxSpeed: 2
   analog: 1
   antrieb: {fileID: 439700156}
+  leben: 3
+  explo: {fileID: 554867004918776047, guid: 4b4a35a7aec4a5848ad061c906edbd3b, type: 3}
 --- !u!95 &1679034801
 Animator:
   serializedVersion: 3
@@ -4936,7 +4926,7 @@ Animator:
   m_GameObject: {fileID: 1556777768341676672}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8b5f8d02e71f26549bd76e886e412a70, type: 2}
+  m_Controller: {fileID: 9100000, guid: 33d33d86517a05c40983097c96fe3886, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
