@@ -31,6 +31,8 @@ public class killdeath : MonoBehaviour
             Destroy(gameObject);
             // wenn gameObjekt auf Schiff trifft -> Explosion auslösen
             Instantiate(explo, transform.position, Quaternion.identity);
+            //Schiff wird benachrichtigt Schaden zu erhalten egal, ob es einen Empfänger hat oder nicht
+            other.SendMessage("Treffer", damage, SendMessageOptions.DontRequireReceiver);
         }
     }
 }
