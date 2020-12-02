@@ -23,8 +23,8 @@ public class shipController : MonoBehaviour
 
     public ParticleSystem antrieb;
 
-    public int leben = 3;
-    public GameObject explo;
+    public int leben = 3;                           //Lebenspunkte des Schiffs
+    public GameObject explo;                        //Animation bei Zerstörung des Schiffs (Lebenspunkte des Schiffs fallen auf/unter null)
 
     // wird vor Startfunktion einmalig ausgeführt
     void Awake()
