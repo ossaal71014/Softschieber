@@ -135,8 +135,9 @@ public class shipController : MonoBehaviour
         leben -= schaden;
         if (leben <= 0)
         {
-            //Bei tödlichem Schaden soll Explosion an Ort des Schiffes durchgerührt werden
+            //Bei tödlichem Schaden soll Explosion an Ort des Schiffes durchgerührt werden und Schiff wird zerstört
             Instantiate(explo, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 
