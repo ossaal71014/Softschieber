@@ -9,6 +9,7 @@ TagManager:
   - down
   - up
   - killzone
+  - Enemy
   layers:
   - Default
   - TransparentFX
