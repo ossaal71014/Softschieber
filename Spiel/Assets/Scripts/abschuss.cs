@@ -14,6 +14,7 @@ public class abschuss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Abfrage: Bei Tastendruck der zugeordneten Aktion "Fire1" (Linke-Maustaste Default) soll Projektil abgefeuert werden
+
     }
 }
