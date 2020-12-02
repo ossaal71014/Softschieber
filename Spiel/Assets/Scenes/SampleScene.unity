@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: asteroid1
       objectReference: {fileID: 0}
+    - target: {fileID: 7481013535950188499, guid: 294a7b65219932a488a4acbcb3e2cda8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7481013535950188500, guid: 294a7b65219932a488a4acbcb3e2cda8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10434,6 +10439,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: asteroid2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481737941895479391, guid: d40092ddc6f8b9b458447cc1c50c6f9d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d40092ddc6f8b9b458447cc1c50c6f9d, type: 3}
