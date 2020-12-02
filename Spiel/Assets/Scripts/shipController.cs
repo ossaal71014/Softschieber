@@ -129,6 +129,16 @@ public class shipController : MonoBehaviour
         }
     }
 
+    void Treffer(int schaden)
+    {
+        leben -= schaden;
+        if (leben <= 0)
+        {
+            //Bei tödlichem Schaden soll Explosion an Ort des Schiffes durchgerührt werden
+            Instantiate(explo, transform.position, Quaternion.identity);
+        }
+    }
+
     // Abfrage ob Collider getroffen (wenn Trigger berührt)
     private void OnTriggerEnter2D(Collider2D other)
     {
