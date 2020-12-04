@@ -30,7 +30,12 @@ public class projektil : MonoBehaviour
         //Trifft Projektil auf Gegner?
         if (other.CompareTag("Enemy"))
         {
-
+            //Erzeuge Explosion
+            Instantiate(explo, transform.position, Quaternion.identity);
+            //Zerstöre dich selbst
+            Destroy(gameObject);
+            //Verursache Gegner Schaden
+            other.SendMessage("Treffer", schaden, SendMessageOptions.DontRequireReceiver);
         }
     }
 
