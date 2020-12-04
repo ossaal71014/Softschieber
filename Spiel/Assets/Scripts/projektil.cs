@@ -41,4 +41,20 @@ public class projektil : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Gegner erhalten Schaden und werden zerstört
+    /// </summary>
+    /// <param name="schaden"></param>
+    void Treffer(int schaden)
+    {
+        leben -= schaden;
+        //Genügt Schaden um Gegner zu zerstören?
+        if (leben <= 0)
+        {
+            Destroy(gameObject);
+            //Erzeuge Explosion
+            Instantiate(explo, transform.position, Quaternion.identity);
+        }
+    }
+
 }
