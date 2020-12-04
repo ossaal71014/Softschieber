@@ -27,7 +27,11 @@ public class projektil : MonoBehaviour
     /// <param name="other"></param>
     void OnTriggerEnter2D(Collider2D other)
     {
+        //Trifft Projektil auf Gegner?
+        if (other.CompareTag("Enemy"))
+        {
 
+        }
     }
 
 }
