@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 167191245462415268}
   - component: {fileID: 167191245462415265}
   - component: {fileID: 167191245462415270}
-  - component: {fileID: 167191245462415264}
   m_Layer: 0
   m_Name: schuss1
   m_TagString: Untagged
@@ -4755,27 +4754,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!50 &167191245462415264
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 167191245462415269}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &167191246057069845
 GameObject:
   m_ObjectHideFlags: 0
@@ -4787,6 +4765,7 @@ GameObject:
   - component: {fileID: 167191246057069847}
   - component: {fileID: 167191246057069844}
   - component: {fileID: 3978895035655332529}
+  - component: {fileID: 2223660496159211264}
   m_Layer: 0
   m_Name: schuss1
   m_TagString: Untagged
@@ -4840,3 +4819,24 @@ MonoBehaviour:
   speed: 5
   schaden: 1
   explo: {fileID: 6105239222492041753, guid: f8aec4d5b835c734b85d93f5dfd61dce, type: 3}
+--- !u!50 &2223660496159211264
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167191246057069845}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
