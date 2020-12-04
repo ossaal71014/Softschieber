@@ -20,4 +20,14 @@ public class projektil : MonoBehaviour
         //Projektil soll sich mit Geschwindigkeit "speed" aufwärts bewegen
         transform.Translate(Vector3.up * Time.deltaTime * speed);
     }
+
+    /// <summary>
+    /// Projektil verursacht Explosion bei Gegnerkollision, verursacht Schaden am Gegner und Projektil zerstört sich selbst bei Kollision
+    /// </summary>
+    /// <param name="other"></param>
+    void OnTriggerEnter2D(Collider2D other)
+    {
+
+    }
+
 }
