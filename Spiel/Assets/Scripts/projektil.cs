@@ -5,7 +5,8 @@ using UnityEngine;
 public class projektil : MonoBehaviour
 {
     public float speed = 2f;                            //Variable für Projektilgeschwindigkeit
-    public int schaden = 1;                             //Schaden den das Projektil verursacht
+    public int schaden = 1;                             //Schaden den das Projektil verursachen soll
+    public GameObject explo;                            //Projektil soll Explosion verursachen bei Kollison mit Gegner
 
     // Start is called before the first frame update
     void Start()
