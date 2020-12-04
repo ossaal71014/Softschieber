@@ -34,7 +34,7 @@ public class projektil : MonoBehaviour
             Instantiate(explo, transform.position, Quaternion.identity);
             //Zerstöre dich selbst
             Destroy(gameObject);
-            //Verursache Gegner Schaden
+            //Verursache Schaden am Gegner 
             other.SendMessage("Treffer", schaden, SendMessageOptions.DontRequireReceiver);
         }
     }
