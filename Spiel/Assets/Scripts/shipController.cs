@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class shipController : MonoBehaviour
 {
-    public float maxSpeed = 12f;
+    public float maxSpeed = 2f;
     // instantane Bewegung oder mit Beschleunigung
     public bool analog = true;
 
@@ -22,6 +22,9 @@ public class shipController : MonoBehaviour
     private Animator anim;
 
     public ParticleSystem antrieb;
+
+    public int leben = 3;                           //Lebenspunkte des Schiffs
+    public GameObject explo;                        //Animation bei Zerstörung des Schiffs (Lebenspunkte des Schiffs fallen auf/unter null)
 
     // wird vor Startfunktion einmalig ausgeführt
     void Awake()
@@ -123,6 +126,18 @@ public class shipController : MonoBehaviour
             {
                 hitdown = false;
             }
+        }
+    }
+
+    //Treffer-Funktion zieht Schiff leben ab bei Kollision mit Gegner
+    void Treffer(int schaden)
+    {
+        leben -= schaden;
+        if (leben <= 0)
+        {
+            //Bei tödlichem Schaden soll Explosion an Ort des Schiffes durchgerührt werden und Schiff wird zerstört
+            Instantiate(explo, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class asteroid : MonoBehaviour
 {
     private Animator anim;
-    // alösdkjflak
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
