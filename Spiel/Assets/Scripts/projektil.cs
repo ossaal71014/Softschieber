@@ -38,6 +38,11 @@ public class projektil : MonoBehaviour
             //Verursache Schaden am Gegner 
             other.SendMessage("Treffer", schaden, SendMessageOptions.DontRequireReceiver);
         }
+        //Wenn das Projektil in die Killzone (oberer Rand des Spielfelds) fliegt, wird es gelöscht
+        if (other.CompareTag("killzone"))
+        {
+            Destroy(gameObject);
+        }
     }
 
  
