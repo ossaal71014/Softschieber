@@ -23,10 +23,8 @@ public class shipController : MonoBehaviour
 
     public ParticleSystem antrieb;
 
-    public int schild = 3;                           //Lebenspunkte des Schiffs
+    public int leben = 3;                           //Lebenspunkte des Schiffs
     public GameObject explo;                        //Animation bei Zerstörung des Schiffs (Lebenspunkte des Schiffs fallen auf/unter null)
-
-    public schild schildscript;
 
     // wird vor Startfunktion einmalig ausgeführt
     void Awake()
@@ -134,10 +132,8 @@ public class shipController : MonoBehaviour
     //Treffer-Funktion zieht Schiff leben ab bei Kollision mit Gegner
     void Treffer(int schaden)
     {
-        schild -= schaden;
-        schildscript.schildAn = true; 
-
-        if (schild <= 0)
+        leben -= schaden;
+        if (leben <= 0)
         {
             //Bei tödlichem Schaden soll Explosion an Ort des Schiffes durchgerührt werden und Schiff wird zerstört
             Instantiate(explo, transform.position, Quaternion.identity);
