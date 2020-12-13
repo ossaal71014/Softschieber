@@ -51,4 +51,18 @@ public class GUIScript : MonoBehaviour
             praefix = "";
         }
     }
+    //Einzeichnen der Grafik
+    //(newRect(x,y,w,h), Texture2D) => zeichnet Textur "Texture2D" an Position x,y mit Breite w und Höhe h
+    void OnGUI()
+    {
+        GUI.skin = skin1;
+        GUI.DrawTexture(new Rect(homi - 200, 0, 400, 50), background);
+        GUI.Label(new Rect(homi - 190, 10, 32, 32), ship);
+        GUI.Label(new Rect(homi - 150, 13, 50, 50), "" + ships);
+        GUI.Label(new Rect(homi - 100, 8, 32, 32), shield);
+        GUI.Label(new Rect(homi - 60, 13, 50, 50), "" + shields);
+        GUI.Label(new Rect(homi, 13, 200, 50), "score: " + praefix + score);
+
+
+    }
 }
