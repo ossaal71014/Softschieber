@@ -15,12 +15,12 @@ public class schild : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Schildanimation erstellen mit der Übergabe der schildAn-Variable von einem anderen script
+        //Schildanimation erstellen mit der Übergabe der schildAn-Variable aus shipController.cs
         if (schildAn)
         {
             anim.SetBool("schildAn", true);
             schildAn = false; 
-            StartCoroutine(MachAus()); //SchildAn im Animator auf false setzen, damit es nicht wiederholt wird
+            StartCoroutine (MachAus()); //SchildAn im Animator auf false setzen, damit es nicht wiederholt wird
         }
     }
     IEnumerator MachAus()
