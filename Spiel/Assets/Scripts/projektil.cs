@@ -38,6 +38,12 @@ public class projektil : MonoBehaviour
             //Verursache Schaden am Gegner 
             other.SendMessage("Treffer", schaden, SendMessageOptions.DontRequireReceiver);
         }
+        //Trifft Projektil auf Killzone (oberer Rand)?
+        if (other.CompareTag("killzone"))
+        {
+            //Zerstöre dich selbst
+            Destroy(gameObject);
+        }
     }
 
  
