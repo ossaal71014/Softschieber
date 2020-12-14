@@ -28,17 +28,27 @@ public class shipController : MonoBehaviour
 
     public schild schildscript;                     //Schildanimation bei Kollision mit Asteroiden 
 
+    private GameObject Vatter;
+    private GameLogic gameLogic;
+    private GUIScript gui;
+
     // wird vor Startfunktion einmalig ausgeführt
     void Awake()
     {
         // Komponente vom Tyn Animator
         anim = GetComponent<Animator>();
+
+        Vatter = GameObject.FindGameObjectWithTag("MainCamera");
+        gameLogic = Vatter.GetComponent<GameLogic>();
+        gui = Vatter.GetComponent<GUIScript>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gui.shields = istSchild;
+        transform.parent = Vatter.transform;
+        transform.localPosition = new Vector3(0f, -6.5f, 10f); 
     }
     
     // Update is called once per frame

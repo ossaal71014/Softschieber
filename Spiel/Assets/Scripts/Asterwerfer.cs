@@ -14,11 +14,20 @@ public class Asterwerfer : MonoBehaviour
     public float rechts;
     public float speed = 10f;
     private bool nachlinks;
+    private GameObject Vatter;
+    private GameLogic gameLogic;
 
     // Start is called before the first frame update
+    void Awake()
+    {
+        Vatter = GameObject.FindGameObjectWithTag("MainCamera");
+        gameLogic = Vatter.GetComponent<GameLogic>();
+    }
+
     void Start()
     {
-        
+        transform.parent = Vatter.transform;
+        transform.localPosition = new Vector3(0f, +6.5f, 11f);
     }
 
     // Update is called once per frame
