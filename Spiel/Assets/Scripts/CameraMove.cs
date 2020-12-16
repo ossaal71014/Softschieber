@@ -16,10 +16,9 @@ public class CameraMove : MonoBehaviour
         oldSpeed = cameraSpeed;
         newSpeed = cameraSpeed * 3;
     }
-
     void Update()
     {
-        if(gLogic.todesPhase && cameraSpeed<newSpeed)
+        if(gLogic.todesPhase && cameraSpeed < newSpeed)
         {
             cameraSpeed += Time.deltaTime * 3;
         }

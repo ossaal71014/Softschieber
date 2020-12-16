@@ -18,12 +18,12 @@ public class GUIScript : MonoBehaviour
 
     private string praefix = "";    //Darstellung Score mit Nullen davorgestellt z.B. 00018
 
-    private GameLogic gLogic;       //Verweis zum script GameLogic
-
+    private GameLogic gLogic; 
     // Start is called before the first frame update
     void Awake()
     {
-        gLogic = gameObject.GetComponent<GameLogic>();  
+        gLogic = gameObject.GetComponent<GameLogic>();
+
     }
 
     // Update is called once per frame
@@ -33,8 +33,7 @@ public class GUIScript : MonoBehaviour
         {
             score = 0;
             ships = 3;
-            gLogic.spielStart = false;
-
+            gLogic.spielStart = false; 
         }
         homi = Screen.width / 2;
         praefix = "00000";
@@ -72,12 +71,10 @@ public class GUIScript : MonoBehaviour
         GUI.Label(new Rect(homi - 100, 8, 32, 32), shield);
         GUI.Label(new Rect(homi - 60, 13, 50, 50), "" + shields);
         GUI.Label(new Rect(homi, 13, 200, 50), "score: " + praefix + score);
-
         GUI.skin = skin2;
         if (gLogic.gameOver)
         {
-            GUI.Label(new Rect(homi - 150, Screen.height / 2 - 50, 300, 100), "game over");
+            GUI.Label(new Rect(homi - 150, Screen.height/2 -50, 300, 100), "game over");
         }
-
     }
 }

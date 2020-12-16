@@ -11,12 +11,13 @@ public class Erstellerscript : MonoBehaviour
     void Awake()
     {
         gLogic = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameLogic>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!gLogic.gameOver && gLogic.macheSpieler)
+        if(!gLogic.gameOver && gLogic.macheSpieler)
         {
             Instantiate(Schiffsprefab);
             gLogic.macheSpieler = false;

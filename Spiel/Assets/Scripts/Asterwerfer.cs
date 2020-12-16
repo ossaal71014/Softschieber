@@ -14,8 +14,10 @@ public class Asterwerfer : MonoBehaviour
     public float rechts;
     public float speed = 10f;
     private bool nachlinks;
+
     private GameObject Vatter;
     private GameLogic gLogic;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -23,7 +25,6 @@ public class Asterwerfer : MonoBehaviour
         Vatter = GameObject.FindGameObjectWithTag("MainCamera");
         gLogic = Vatter.GetComponent<GameLogic>();
     }
-
     void Start()
     {
         transform.parent = Vatter.transform;
@@ -33,9 +34,8 @@ public class Asterwerfer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gLogic.startPhase && !gLogic.todesPhase)
+        if(!gLogic.startPhase && !gLogic.todesPhase)
         {
-
             if (!jetzt)
             {
                 jetzt = true;
@@ -76,14 +76,15 @@ public class Asterwerfer : MonoBehaviour
                 }
             }
         }
+        
     }
-    IEnumerator Raus(GameObject go, float z)
-    {
-        // erst wenn z Sekunden abgelaufen
-        yield return (new WaitForSeconds(z));
-        // wird das abgearbeitet
-        Instantiate(go, transform.position, Quaternion.identity);
-        jetzt = false;
-    }
+        IEnumerator Raus(GameObject go, float z)
+        {
+            // erst wenn z Sekunden abgelaufen
+            yield return (new WaitForSeconds(z));
+            // wird das abgearbeitet
+            Instantiate(go, transform.position, Quaternion.identity);
+            jetzt = false;
+        }
     
 }

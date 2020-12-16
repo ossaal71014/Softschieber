@@ -7,15 +7,14 @@ public class killdeath : MonoBehaviour
     public GameObject explo;
     public int damage = 1;                              //Variable für Schaden, der dem Schiff zugefügt werden soll
     public int leben = 3;                               //Gegner sollen Leben erhalten
-    public int trefferPunkte = 1;                       //Punkte für einen Treffer
-    public int killPunkte = 1;                          //Punkte wenn Genger zerstört wird
-    private GUIScript gui;
+    public int trefferPunkte = 1;
+    public int killPunkte = 1;
+    private GUIScript gui; 
 
-    
     // Start is called before the first frame update
     void Awake()
     {
-        gui = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GUIScript>();  
+        gui = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GUIScript>();
     }
 
     // Update is called once per frame

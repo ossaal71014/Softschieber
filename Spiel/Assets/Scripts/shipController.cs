@@ -31,16 +31,15 @@ public class shipController : MonoBehaviour
     private GameObject Vatter;
     private GameLogic gLogic;
     private GUIScript gui;
-
     // wird vor Startfunktion einmalig ausgeführt
     void Awake()
     {
         // Komponente vom Tyn Animator
         anim = GetComponent<Animator>();
-
         Vatter = GameObject.FindGameObjectWithTag("MainCamera");
         gLogic = Vatter.GetComponent<GameLogic>();
         gui = Vatter.GetComponent<GUIScript>();
+
     }
 
     // Start is called before the first frame update
@@ -48,9 +47,9 @@ public class shipController : MonoBehaviour
     {
         gui.shields = istSchild;
         transform.parent = Vatter.transform;
-        transform.localPosition = new Vector3(0f, -6.5f, 10f); 
+        transform.localPosition = new Vector3(0f, -6.5f, 10f);
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -67,14 +66,15 @@ public class shipController : MonoBehaviour
             }
         }
         else
-		{ // Tastatur abfrage
-			if (!analog)
-			{
-				// Raw -> wenn über Nullpunkt hinaus -> 1
-				xAchse = Input.GetAxisRaw("Horizontal");
-				yAchse = Input.GetAxisRaw("Vertical");
-			}
-			else
+        {
+            // Tastatur abfrage
+            if (!analog)
+            {
+                // Raw -> wenn über Nullpunkt hinaus -> 1
+                xAchse = Input.GetAxisRaw("Horizontal");
+                yAchse = Input.GetAxisRaw("Vertical");
+            }
+            else
             {
                 // Wert auf Achsen
                 xAchse = Input.GetAxis("Horizontal");
@@ -153,6 +153,8 @@ public class shipController : MonoBehaviour
                 }
             }
         }
+
+
     }
 
     //Treffer-Funktion zieht Schiff leben ab bei Kollision mit Gegner 
@@ -162,18 +164,15 @@ public class shipController : MonoBehaviour
         istSchild -= schaden;
         schildscript.schildAn = true;
         gui.shields = istSchild;
-
-        if (istSchild <= 0)
+        if (istSchild < 0)
         {
             //Bei tödlichem Schaden soll Explosion an Ort des Schiffes durchgerührt werden und Schiff wird zerstört
-            //Game Over
             Instantiate(explo, transform.position, Quaternion.identity);
             Destroy(gameObject);
             gui.shields = 0;
-            --gui.ships;
-
+            gui.ships--;
             gLogic.todesPhase = true;
-            if (gui.ships <= 0)
+            if(gui.ships <= 0)
             {
                 gLogic.gameOver = true;
             }

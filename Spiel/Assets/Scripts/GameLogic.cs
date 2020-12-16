@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class GameLogic : MonoBehaviour
 {
-    public int stage = 1;                           //level
-    public float todeszeit = 5f;                    //Zeit respawn
-    private bool totWarte = false;                  //Variable für Coroutine
-    public bool macheSpieler = true;                //Variable für Spielererzeugung
-    public bool spielStart = true;                  //Variable für Grundeinstellung
-    public bool startPhase = true;                  //Raumschiff fliegt beim Start rein
-    public bool todesPhase = false;                 //Raumschifft fliegt bei Tod raus
-    public bool gameOver = false;                   //GameOver 
-
+    public int stage = 1;
+    public float todeszeit = 5f;
+    private bool todWarte = false;
+    public bool macheSpieler = true;
+    public bool spielStart = true;
+    public bool startPhase = true;
+    public bool todesPhase = false;
+    public bool gameOver = false; 
 
     // Start is called before the first frame update
     void Start()
@@ -23,22 +22,23 @@ public class GameLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(todesPhase && !totWarte)
+        //Steuerung der Todesphase
+        if(todesPhase && !todWarte)
         {
             StartCoroutine(Warte());
-            totWarte = true;
+            todWarte = true; 
         }
-        
     }
-    IEnumerator Warte()
+    IEnumerator Warte() 
     {
         yield return new WaitForSeconds(todeszeit);
         todesPhase = false;
         startPhase = true;
-        totWarte = false;
+        todWarte = false;
         if (!gameOver)
         {
-            macheSpieler = true;
+            macheSpieler = true; 
         }
     }
 }
+
