@@ -4763,6 +4763,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1309114108}
+  - component: {fileID: 1309114109}
   m_Layer: 0
   m_Name: abschusspunkt1
   m_TagString: Untagged
@@ -4784,6 +4785,24 @@ Transform:
   m_Father: {fileID: 4529866182436268544}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1309114109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309114107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feac95ffd450eb2408b09c3fafc0205b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typ1: {fileID: 167191246057069845, guid: 8627c9db9091042418f0492498b523f1, type: 3}
+  schussrate: 0.1
+  nachladezeit: 0.4
+  schussladung: 2
+  schussladungMax: 2
+  jetzt: 1
 --- !u!1 &2071012456
 GameObject:
   m_ObjectHideFlags: 0
@@ -4793,6 +4812,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2071012457}
+  - component: {fileID: 2071012458}
   m_Layer: 0
   m_Name: abschusspunkt2
   m_TagString: Untagged
@@ -4814,6 +4834,24 @@ Transform:
   m_Father: {fileID: 4529866182436268544}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2071012458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071012456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feac95ffd450eb2408b09c3fafc0205b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typ1: {fileID: 167191246057069845, guid: 8627c9db9091042418f0492498b523f1, type: 3}
+  schussrate: 0.1
+  nachladezeit: 0.4
+  schussladung: 2
+  schussladungMax: 2
+  jetzt: 1
 --- !u!1 &877586092101404750
 GameObject:
   m_ObjectHideFlags: 0
@@ -4928,6 +4966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd3d38c894f2484cb2a5ec2722e8265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  schildAn: 1
 --- !u!1 &1556777768341676672
 GameObject:
   m_ObjectHideFlags: 0
@@ -5091,8 +5130,9 @@ MonoBehaviour:
   maxSpeed: 2
   analog: 1
   antrieb: {fileID: 439700156}
-  leben: 3
+  istSchild: 3
   explo: {fileID: 554867004918776047, guid: 4b4a35a7aec4a5848ad061c906edbd3b, type: 3}
+  schildscript: {fileID: 2221707180091882107}
 --- !u!95 &1679034801
 Animator:
   serializedVersion: 3
