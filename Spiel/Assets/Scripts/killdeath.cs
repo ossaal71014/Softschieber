@@ -7,10 +7,14 @@ public class killdeath : MonoBehaviour
     public GameObject explo;
     public int damage = 1;                              //Variable für Schaden, der dem Schiff zugefügt werden soll
     public int leben = 3;                               //Gegner sollen Leben erhalten
+    public int trefferPunkte = 1;
+    public int killPunkte = 1;
+    private GUIScript gui; 
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        gui = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GUIScript>();
     }
 
     // Update is called once per frame
@@ -34,6 +38,7 @@ public class killdeath : MonoBehaviour
             Instantiate(explo, transform.position, Quaternion.identity);
             //Schiff wird benachrichtigt Schaden zu erhalten egal, ob es einen Empfänger hat oder nicht
             other.SendMessage("Treffer", damage, SendMessageOptions.DontRequireReceiver);
+            gui.score += killPunkte;
         }
     }
 
@@ -44,9 +49,11 @@ public class killdeath : MonoBehaviour
     void Treffer(int schaden)
     {
         leben -= schaden;
+        gui.score += trefferPunkte;
         //Genügt Schaden um Gegner zu zerstören?
         if (leben <= 0)
         {
+            gui.score += killPunkte;
             Destroy(gameObject);
             //Erzeuge Explosion
             Instantiate(explo, transform.position, Quaternion.identity);

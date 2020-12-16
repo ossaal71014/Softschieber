@@ -23,27 +23,37 @@ public class shipController : MonoBehaviour
 
     public ParticleSystem antrieb;
 
-    public int schild = 3;                           //Lebenspunkte des Schiffs
+    public int istSchild = 3;                           //Lebenspunkte des Schiffs
     public GameObject explo;                        //Animation bei Zerstörung des Schiffs (Lebenspunkte des Schiffs fallen auf/unter null)
 
     public schild schildscript;                     //Schildanimation bei Kollision mit Asteroiden 
 
+    private GameObject Vatter;
+    private GameLogic gLogic;
+    private GUIScript gui;
     // wird vor Startfunktion einmalig ausgeführt
     void Awake()
     {
         // Komponente vom Tyn Animator
         anim = GetComponent<Animator>();
+        Vatter = GameObject.FindGameObjectWithTag("MainCamera");
+        gLogic = Vatter.GetComponent<GameLogic>();
+        gui = Vatter.GetComponent<GUIScript>();
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gui.shields = istSchild;
+        transform.parent = Vatter.transform;
+        transform.localPosition = new Vector3(0f, -6.5f, 10f);
     }
     
     // Update is called once per frame
     void Update()
     {   
+
         // Tastatur abfrage
         if(!analog)
         {
@@ -135,10 +145,10 @@ public class shipController : MonoBehaviour
     //Bei Kollision wird Schild-Animation angezeigt
     void Treffer(int schaden)
     {
-        schild -= schaden;
+        istSchild -= schaden;
         schildscript.schildAn = true; 
 
-        if (schild <= 0)
+        if (istSchild <= 0)
         {
             //Bei tödlichem Schaden soll Explosion an Ort des Schiffes durchgerührt werden und Schiff wird zerstört
             Instantiate(explo, transform.position, Quaternion.identity);
