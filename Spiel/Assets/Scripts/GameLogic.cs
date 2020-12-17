@@ -12,7 +12,6 @@ public class GameLogic : MonoBehaviour
     public bool startPhase = true;
     public bool todesPhase = false;
     public bool gameOver = false; 
-    
 
     // Start is called before the first frame update
     void Start()

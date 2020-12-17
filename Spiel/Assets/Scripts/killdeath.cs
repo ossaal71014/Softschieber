@@ -4,23 +4,17 @@ using UnityEngine;
 
 public class killdeath : MonoBehaviour
 {
-    public AudioSource Hitaudio;
-    public AudioSource Killaudio;
     public GameObject explo;
     public int damage = 1;                              //Variable für Schaden, der dem Schiff zugefügt werden soll
     public int leben = 3;                               //Gegner sollen Leben erhalten
     public int trefferPunkte = 1;
     public int killPunkte = 1;
-    private GUIScript gui;
-   //public Renderer renderer;
-   //Collider2D collider2D;
+    private GUIScript gui; 
 
     // Start is called before the first frame update
     void Awake()
     {
         gui = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GUIScript>();
-       // collider2D = GetComponent<Collider2D>();
-        //renderer = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -39,19 +33,12 @@ public class killdeath : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            //renderer.enabled = false;
-            //collider2D.enabled = false;
-            // unsichtbar und kein Kollisionen mehr möglich
-            //gameObject.GetComponent<Renderer>().enabled = false;
-            //gameObject.GetComponent<Collider>().enabled = false;
-            // Zerstöre erst nach 2f -> damit Geräusche noch abgespielt werden können
-            Destroy(gameObject, 2f);
+            Destroy(gameObject);
             // wenn gameObjekt auf Schiff trifft -> Explosion auslösen
             Instantiate(explo, transform.position, Quaternion.identity);
             //Schiff wird benachrichtigt Schaden zu erhalten egal, ob es einen Empfänger hat oder nicht
             other.SendMessage("Treffer", damage, SendMessageOptions.DontRequireReceiver);
             gui.score += killPunkte;
-            Killaudio.Play();
         }
     }
 
@@ -67,19 +54,9 @@ public class killdeath : MonoBehaviour
         if (leben <= 0)
         {
             gui.score += killPunkte;
-            //gameObject.GetComponent<Renderer>().enabled = false;
-            //gameObject.GetComponent<Collider>().enabled = false;
-            Destroy(gameObject, 2f);
+            Destroy(gameObject);
             //Erzeuge Explosion
             Instantiate(explo, transform.position, Quaternion.identity);
-            Killaudio.Play();
-        }
-        else
-        {
-            if (!Hitaudio.isPlaying)
-            {
-                Hitaudio.Play();
-            }
         }
     }
 }
