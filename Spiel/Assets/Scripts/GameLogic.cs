@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameLogic : MonoBehaviour
 {
-
+    public AudioClip startMusik;
+    public AudioClip totMusik;
     public ParticleSystemRenderer[] allstars;
     private float[] oldScale = new float[3];
     private float[] newScale = new float[3];
@@ -16,7 +17,10 @@ public class GameLogic : MonoBehaviour
     public bool startPhase = true;
     public bool todesPhase = false;
     public bool gameOver = false;
-
+    public float anzeigeZeit = 2f;
+    public bool stageAnzeige = true;
+    public bool anzeigeIstAn = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -32,11 +36,21 @@ public class GameLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!todesPhase && !startPhase && stageAnzeige && !anzeigeIstAn)
+        {
+            GetComponent<AudioSource>().clip = startMusik;
+            GetComponent<AudioSource>().Play();
+            anzeigeIstAn = true;
+            StartCoroutine(WarteAnzeige());
+        }
+
         //Steuerung der Todesphase
         if (todesPhase && !todWarte)
         {
             StartCoroutine(Warte());
             todWarte = true;
+            GetComponent<AudioSource>().clip = totMusik;
+            GetComponent<AudioSource>().Play();
         }
         if (todesPhase && allstars[0].lengthScale > newScale[0])
         {
@@ -80,11 +94,19 @@ public class GameLogic : MonoBehaviour
         yield return new WaitForSeconds(todeszeit);
         todesPhase = false;
         startPhase = true;
+        stageAnzeige = true;
         todWarte = false;
         if (!gameOver)
         {
             macheSpieler = true;
         }
+    }
+
+    IEnumerator WarteAnzeige()
+    {
+        yield return new WaitForSeconds(anzeigeZeit);
+        stageAnzeige = false;
+        anzeigeIstAn = false;
     }
 }
 

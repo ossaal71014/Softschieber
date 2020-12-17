@@ -76,5 +76,9 @@ public class GUIScript : MonoBehaviour
         {
             GUI.Label(new Rect(homi - 150, Screen.height/2 -50, 300, 100), "game over");
         }
+        if (gLogic.stageAnzeige && gLogic.anzeigeIstAn)
+        {
+            GUI.Label(new Rect(homi - 150, Screen.height / 2 - 50, 300, 100), "stage "+gLogic.stage);
+        }
     }
 }
