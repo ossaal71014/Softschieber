@@ -272,13 +272,13 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
-  m_LengthScale: 1.2
+  m_LengthScale: -1
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0
@@ -5138,7 +5138,7 @@ ParticleSystemRenderer:
   m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
-  m_LengthScale: 1.2
+  m_LengthScale: -1.5
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0
@@ -9948,6 +9948,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1f8f76cd6f10549b1b639ad23288c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allstars:
+  - {fileID: 414905820}
+  - {fileID: 225772633}
+  - {fileID: 1657570315}
   stage: 1
   todeszeit: 5
   macheSpieler: 1
@@ -10068,6 +10072,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 24065942, guid: d40092ddc6f8b9b458447cc1c50c6f9d, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7481737941895479386, guid: d40092ddc6f8b9b458447cc1c50c6f9d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10244,13 +10252,13 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
-  m_LengthScale: 1.2
+  m_LengthScale: -1
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0
