@@ -4765,7 +4765,7 @@ GameObject:
   - component: {fileID: 167191246057069847}
   - component: {fileID: 167191246057069844}
   - component: {fileID: 3978895035655332529}
-  - component: {fileID: 2223660496159211264}
+  - component: {fileID: 680300913}
   m_Layer: 0
   m_Name: schuss1
   m_TagString: Untagged
@@ -4819,7 +4819,7 @@ MonoBehaviour:
   speed: 5
   schaden: 1
   explo: {fileID: 6105239222492041753, guid: f8aec4d5b835c734b85d93f5dfd61dce, type: 3}
---- !u!50 &2223660496159211264
+--- !u!50 &680300913
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
