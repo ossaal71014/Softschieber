@@ -178,6 +178,19 @@ public class shipController : MonoBehaviour
             }
         }
     }
+    void ShieldAdd()
+    {
+        istSchild++;
+        gui.shields++;
+    }
+    void ShipAdd()
+    {
+        gui.ships++;
+    }
+    void Weapon1()
+    {
+
+    }
 
     // Abfrage ob Collider getroffen (wenn Trigger berührt)
     private void OnTriggerEnter2D(Collider2D other)
