@@ -290,6 +290,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Schiffsprefab: {fileID: 1556777768341676672, guid: f5ca9baeb1c79ef45bc51c4b9fb1153e,
     type: 3}
+  ShieldAddPrefab: {fileID: 8813618804497346852, guid: 622aded38e960624e8427bf9462a3416,
+    type: 3}
+  ShipAddPrefab: {fileID: 8958169168948020724, guid: d633a72946540a34b918b80f89800dec,
+    type: 3}
 --- !u!4 &2110779533
 Transform:
   m_ObjectHideFlags: 0
@@ -572,6 +576,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: extraShip
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: asterForShield
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: ship1ForShield
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: ship2ForShield
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: ship3ForShield
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8566405372825681293, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}

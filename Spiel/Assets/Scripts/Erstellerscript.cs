@@ -6,6 +6,10 @@ public class Erstellerscript : MonoBehaviour
 {
     private GameLogic gLogic;
     public GameObject Schiffsprefab;
+    public GameObject ShieldAddPrefab;
+    public GameObject ShipAddPrefab;
+
+    private Vector3 machPosi;       //Position der Items
 
     // Start is called before the first frame update
     void Awake()
@@ -21,6 +25,18 @@ public class Erstellerscript : MonoBehaviour
         {
             Instantiate(Schiffsprefab);
             gLogic.macheSpieler = false;
+        }
+        if (gLogic.makeShield)
+        {
+            gLogic.makeShield = false;
+            machPosi = gLogic.hitPosition;
+            Instantiate(ShieldAddPrefab, machPosi, Quaternion.identity);
+        }
+        if (gLogic.makeShip)
+        {
+            gLogic.makeShip = false;
+            machPosi = gLogic.hitPosition;
+            Instantiate(ShipAddPrefab, machPosi, Quaternion.identity);
         }
     }
 }

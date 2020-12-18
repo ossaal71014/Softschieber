@@ -14,6 +14,10 @@ public class killdeath : MonoBehaviour
     public int trefferPunkte = 1;
     public int killPunkte = 1;
     private GUIScript gui;
+    private GameLogic gLogic;
+    public enum sendTyp { asteroid, shiphorizontal, shipvertical, shipavoid};
+    public sendTyp typ = sendTyp.asteroid;
+
     //public Renderer renderer;
     //public Collider2D collider2D;
 
@@ -21,6 +25,7 @@ public class killdeath : MonoBehaviour
     void Awake()
     {
         gui = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GUIScript>();
+        gLogic = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameLogic>();
         //renderer = renderer.GetComponent<Renderer>();
         //collider2D = collider2D.GetComponent<Collider2D>();
     }
@@ -29,6 +34,33 @@ public class killdeath : MonoBehaviour
     void Update()
     {
         
+    }
+    void Sende()
+    {
+        gLogic.hitPosition = transform.position;
+        switch (typ)
+        {
+            case sendTyp.asteroid:
+                {
+                    gLogic.asteroidHit++;
+                    break;
+                }
+            case sendTyp.shiphorizontal:
+                {
+                    gLogic.ship1Hit++;
+                        break;
+                }
+            case sendTyp.shipvertical:
+                {
+                    gLogic.ship2Hit++;
+                        break;
+                }
+            case sendTyp.shipavoid:
+                {
+                    gLogic.ship3Hit++;
+                        break;
+                }
+        }
     }
 
     // wenn in Trigger eingedrungen wird -> auswertung
@@ -53,6 +85,7 @@ public class killdeath : MonoBehaviour
             other.SendMessage("Treffer", damage, SendMessageOptions.DontRequireReceiver);
             gui.score += killPunkte;
             Killaudio.Play();
+            Sende();
         }
     }
 
@@ -71,12 +104,13 @@ public class killdeath : MonoBehaviour
             //renderer.enabled = false;
             //collider2D.enabled = false;
             // Zerstöre Obejkt erst nach 2f
-            Destroy(gameObject, 2f);
+            Destroy(gameObject, 0.9f);
            
             
             //Erzeuge Explosion
             Instantiate(explo, transform.position, Quaternion.identity);
             Killaudio.Play();
+            Sende();
         }
         else
         {
