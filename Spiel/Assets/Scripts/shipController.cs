@@ -178,6 +178,7 @@ public class shipController : MonoBehaviour
             }
         }
     }
+    //Eingesammelte Items werden gezählt
     void ShieldAdd()
     {
         istSchild++;

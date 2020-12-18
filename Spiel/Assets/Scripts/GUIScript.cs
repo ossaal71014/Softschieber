@@ -33,8 +33,8 @@ public class GUIScript : MonoBehaviour
         {
             score = 0;
             ships = 3;
-            gLogic.spielStart = false; 
         }
+        gLogic.score = score;
         homi = Screen.width / 2;
         praefix = "00000";
 
@@ -59,6 +59,10 @@ public class GUIScript : MonoBehaviour
         {
             praefix = "";
         }
+    }
+    void LateUpdate()
+    {
+        gLogic.spielStart = false;
     }
     //Einzeichnen der Grafik
     //(newRect(x,y,w,h), Texture2D) => zeichnet Textur "Texture2D" an Position x,y mit Breite w und Höhe h
