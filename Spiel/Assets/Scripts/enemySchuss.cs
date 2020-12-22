@@ -23,14 +23,14 @@ public class enemySchuss : MonoBehaviour
         }
         else
         {
-            richtung = (player.transform.position - transform.position).normalized;         //Richtung des Schusses wird berechnet und genormt, um Geschwindigkeit nicht zu beeinflussen
+            richtung = (player.transform.position - transform.position).normalized;             //Richtung des Schusses wird berechnet und genormt, um Geschwindigkeit nicht zu beeinflussen
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(richtung * Time.deltaTime * speed);             //Schuss fliegt
+        transform.Translate(richtung * Time.deltaTime * speed);                                 //Schuss fliegt
     }
 
     /// <summary>
@@ -42,7 +42,7 @@ public class enemySchuss : MonoBehaviour
         //Ist getroffenens Objekt Spieler?
         if (other.CompareTag("Player"))
         {
-            Destroy(gameObject);                                //Zerstöre Projektil
+            Destroy(gameObject);                                                                //Zerstöre Projektil
             other.SendMessage("Treffer", schaden, SendMessageOptions.DontRequireReceiver);      //Übermittle Schaden an Spieler
         }
     }
