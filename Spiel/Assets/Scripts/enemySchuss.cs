@@ -48,7 +48,7 @@ public class enemySchuss : MonoBehaviour
         //Bewegt sich Projektil ausßerhalb der Spielzone?
         if (other.CompareTag("killzone"))
         {
-
+            Destroy(gameObject);
         }
     }
 }
