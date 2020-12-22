@@ -568,6 +568,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -6.045
       objectReference: {fileID: 0}
+    - target: {fileID: 8566405372326971693, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: m_Name
+      value: Killzone unten
+      objectReference: {fileID: 0}
     - target: {fileID: 8566405372698044534, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -587,6 +592,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 5.115
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566405372698044535, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: m_Name
+      value: Killzone oben
       objectReference: {fileID: 0}
     - target: {fileID: 8566405372825681265, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
