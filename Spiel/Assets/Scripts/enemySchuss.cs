@@ -32,4 +32,9 @@ public class enemySchuss : MonoBehaviour
     {
         transform.Translate(richtung * Time.deltaTime * speed);             //Schuss fliegt
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+
+    }
 }
