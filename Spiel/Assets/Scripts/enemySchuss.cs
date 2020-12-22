@@ -39,6 +39,7 @@ public class enemySchuss : MonoBehaviour
     /// <param name="other"></param>
     void OnTriggerEnter2D(Collider2D other)
     {
+        //Ist getroffenens Objekt Spieler?
         if (other.CompareTag("Player"))
         {
 
