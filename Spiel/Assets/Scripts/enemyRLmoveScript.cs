@@ -30,7 +30,12 @@ public class enemyRLmoveScript : MonoBehaviour
         //Ist Gegner nicht zerstört soll er nach bestimmter zeit schießen
         if (jetzt && !tot)
         {
+            jetzt = false;
+            //Gegner soll nur innerhalb des sichtbaren bereichs schießen
+            if (transform.position.x > -3f && transform.position.x <3f)
+            {
 
+            }
         }
     }
     IEnumerator WarteSchuss(float z)
