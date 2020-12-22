@@ -21,6 +21,10 @@ public class enemySchuss : MonoBehaviour
             richtung = -Vector3.up;
             speed = 5f;
         }
+        else
+        {
+            richtung = (player.transform.position - transform.position).normalized;         //Richtung des Schusses wird berechnet und genormt, um Geschwindigkeit nicht zu beeinflussen
+        }
     }
 
     // Update is called once per frame
