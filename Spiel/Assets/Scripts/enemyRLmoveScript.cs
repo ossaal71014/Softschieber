@@ -27,4 +27,9 @@ public class enemyRLmoveScript : MonoBehaviour
     {
         transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);       //Bewege Gegner
     }
+    IEnumerator WarteSchuss(float z)
+    {
+        yield return new WaitForSeconds(z);
+        jetzt = true;
+    }
 }
