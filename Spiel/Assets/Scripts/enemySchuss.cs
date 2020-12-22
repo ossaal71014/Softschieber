@@ -30,6 +30,6 @@ public class enemySchuss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(richtung * Time.deltaTime * speed);             //Schuss fliegt
     }
 }
