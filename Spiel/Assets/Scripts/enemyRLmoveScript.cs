@@ -45,7 +45,6 @@ public class enemyRLmoveScript : MonoBehaviour
         jetzt = true;
     }
 
-
     void Tot()
     {
         tot = true;
