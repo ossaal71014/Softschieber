@@ -18,7 +18,7 @@ public class enemySchuss : MonoBehaviour
         //Falls Spieler nicht gefunden wurde soll der Schuss sich gerade nach unten bewegen
         if (player == null)
         {
-
+            richtung = -Vector3.up;
         }
     }
 
