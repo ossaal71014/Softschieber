@@ -19,7 +19,7 @@ public class enemyRLmoveScript : MonoBehaviour
         {
             speed *= -1;
         }
-        
+        StartCoroutine(WarteSchuss(ersterSchuss));              //Fange erst nach ablauf der Zeit, angegeben von "ersterSchuss", an zu schießen
     }
 
     // Update is called once per frame
