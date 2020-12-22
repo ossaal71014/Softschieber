@@ -35,7 +35,7 @@ public class Erstellerscript : MonoBehaviour
         if (gLogic.makeShip)
         {
             gLogic.makeShip = false;
-            machPosi = gLogic.hitPosition;
+            machPosi = transform.position;
             Instantiate(ShipAddPrefab, machPosi, Quaternion.identity);
         }
     }
