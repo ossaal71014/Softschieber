@@ -6,7 +6,6 @@ public class enemySchuss : MonoBehaviour
 {
     public float speed = 2f;
     public int schaden = 1;
-    public GameObject explo;
     private Vector3 richtung;
     private GameObject player;
 
