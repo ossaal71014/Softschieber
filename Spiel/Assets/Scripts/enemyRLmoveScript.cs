@@ -6,6 +6,7 @@ public class enemyRLmoveScript : MonoBehaviour
 {
     public bool vonLinks;
     public float speed = 2;
+    public float schussrate = 0.8f;
     // Start is called before the first frame update
     void Start()
     {
