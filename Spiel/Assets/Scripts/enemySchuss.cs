@@ -19,6 +19,7 @@ public class enemySchuss : MonoBehaviour
         if (player == null)
         {
             richtung = -Vector3.up;
+            speed = 5f;
         }
     }
 
