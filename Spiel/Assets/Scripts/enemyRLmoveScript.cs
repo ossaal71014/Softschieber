@@ -26,6 +26,12 @@ public class enemyRLmoveScript : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);       //Bewege Gegner
+
+        //Ist Gegner nicht zerstört soll er nach bestimmter zeit schießen
+        if (jetzt && !tot)
+        {
+
+        }
     }
     IEnumerator WarteSchuss(float z)
     {
