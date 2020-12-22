@@ -33,6 +33,10 @@ public class enemySchuss : MonoBehaviour
         transform.Translate(richtung * Time.deltaTime * speed);             //Schuss fliegt
     }
 
+    /// <summary>
+    /// Methode zur Kollisionsermittlung und übergeben von Schaden an Spieler
+    /// </summary>
+    /// <param name="other"></param>
     void OnTriggerEnter2D(Collider2D other)
     {
 
