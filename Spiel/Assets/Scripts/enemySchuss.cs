@@ -43,7 +43,7 @@ public class enemySchuss : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject);                                //Zerstöre Projektil
-            other.SendMessage("Treffer", schaden, SendMessageOptions.DontRequireReceiver);
+            other.SendMessage("Treffer", schaden, SendMessageOptions.DontRequireReceiver);      //Übermittle Schaden an Spieler
         }
     }
 }
