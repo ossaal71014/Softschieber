@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class enemyRLmoveScript : MonoBehaviour
 {
-    public bool vonLinks;                               
+    public bool vonLinks;
+    public float speed = 2;
     // Start is called before the first frame update
     void Start()
     {
