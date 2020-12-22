@@ -35,6 +35,7 @@ public class enemyRLmoveScript : MonoBehaviour
             if (transform.position.x > -3f && transform.position.x <3f)
             {
                 Instantiate(Schuss, transform.position, Quaternion.identity);       //Schieße auf Spieler
+                StartCoroutine(WarteSchuss(1 / schussrate));                        //Schieße in Abhängigkeit der Schussrate erneut
             }
         }
     }
