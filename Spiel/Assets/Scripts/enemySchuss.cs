@@ -14,6 +14,12 @@ public class enemySchuss : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");        //Spüre Position des Spielers auf
+
+        //Falls Spieler nicht gefunden wurde soll der Schuss sich gerade nach unten bewegen
+        if (player == null)
+        {
+
+        }
     }
 
     // Update is called once per frame
