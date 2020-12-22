@@ -42,7 +42,7 @@ public class enemySchuss : MonoBehaviour
         //Ist getroffenens Objekt Spieler?
         if (other.CompareTag("Player"))
         {
-
+            Destroy(gameObject);                                //Zerstöre Projektil
         }
     }
 }
