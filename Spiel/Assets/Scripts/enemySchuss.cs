@@ -45,7 +45,7 @@ public class enemySchuss : MonoBehaviour
             Destroy(gameObject);                                                                //Zerstöre Projektil
             other.SendMessage("Treffer", schaden, SendMessageOptions.DontRequireReceiver);      //Übermittle Schaden an Spieler
         }
-
+        //Bewegt sich Projektil ausßerhalb der Spielzone?
         if (other.CompareTag("killzone"))
         {
 
