@@ -8,6 +8,7 @@ public class enemyRLmoveScript : MonoBehaviour
     public float speed = 2;
     public float schussrate = 0.8f;
     public float ersterSchuss = 1.5f;
+    public GameObject Schuss;
     // Start is called before the first frame update
     void Start()
     {
