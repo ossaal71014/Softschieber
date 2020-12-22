@@ -44,4 +44,10 @@ public class enemyRLmoveScript : MonoBehaviour
         yield return new WaitForSeconds(z);
         jetzt = true;
     }
+
+
+    void Tot()
+    {
+        tot = true;
+    }
 }
