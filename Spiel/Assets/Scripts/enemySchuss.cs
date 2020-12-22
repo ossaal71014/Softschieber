@@ -5,6 +5,7 @@ using UnityEngine;
 public class enemySchuss : MonoBehaviour
 {
     public float speed = 2f;
+    public int schaden = 1;
     // Start is called before the first frame update
     void Start()
     {
