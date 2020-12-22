@@ -14,7 +14,7 @@ public class enemyRLmoveScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //wenn enemy von rechts kommt, dann fliege auch nach links
+        //Wenn enemy von rechts kommt, dann fliege auch nach links
         if (!vonLinks)
         {
             speed *= -1;
