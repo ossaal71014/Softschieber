@@ -8,7 +8,7 @@ public class enemySchuss : MonoBehaviour
     public int schaden = 1;
     public GameObject explo;
     private Vector3 richtung;
-
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
