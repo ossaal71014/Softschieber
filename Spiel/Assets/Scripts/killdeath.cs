@@ -48,6 +48,7 @@ public class killdeath : MonoBehaviour
             case sendTyp.shiphorizontal:
                 {
                     gLogic.ship1Hit++;
+                    gameObject.SendMessage("Tot", SendMessageOptions.DontRequireReceiver);
                         break;
                 }
             case sendTyp.shipvertical:
