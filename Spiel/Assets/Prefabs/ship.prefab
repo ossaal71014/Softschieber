@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 439700154}
   - component: {fileID: 439700156}
   - component: {fileID: 439700155}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: antrieb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4764,7 +4764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1309114108}
   - component: {fileID: 1309114109}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: abschusspunkt1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4816,7 +4816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2071012457}
   - component: {fileID: 2071012458}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: abschusspunkt2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4870,7 +4870,7 @@ GameObject:
   - component: {fileID: 2796545005741534002}
   - component: {fileID: 8732066831303503317}
   - component: {fileID: 2221707180091882107}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: schild
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4988,7 +4988,7 @@ GameObject:
   - component: {fileID: 8894391262679882942}
   - component: {fileID: 1679034801}
   - component: {fileID: 2977829273509178565}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ship
   m_TagString: Player
   m_Icon: {fileID: 0}

@@ -18,6 +18,15 @@ public class Asterwerfer : MonoBehaviour
     private GameObject Vatter;
     private GameLogic gLogic;
 
+    private bool gestartet = false;
+    private bool beendet = false;
+    private bool starten = false;
+    private bool enden = false; 
+    public float startzeit = 0f;
+    public float endzeit = 99f;
+    public float wurfZeit = 2.5f; 
+
+
 
     // Start is called before the first frame update
     void Awake()
@@ -36,7 +45,17 @@ public class Asterwerfer : MonoBehaviour
     {
         if(!gLogic.startPhase && !gLogic.todesPhase)
         {
-            if (!jetzt)
+            if (!starten)
+            {
+                StartCoroutine(Starte (startzeit));
+                starten = true;
+            }
+            if(!enden)
+            {
+                StartCoroutine(Beende (endzeit));
+                enden = true; 
+            }
+            if (!jetzt && !beendet &&!gestartet)
             {
                 jetzt = true;
                 // Zahl zw. 1 und 2
@@ -49,7 +68,7 @@ public class Asterwerfer : MonoBehaviour
                 {
                     wer = aster2;
                 }
-                zeit = Random.Range(0.5f, 2.5f);
+                zeit = Random.Range(0.5f, wurfZeit);
                 StartCoroutine(Raus(wer, zeit));
             }
 
@@ -76,9 +95,37 @@ public class Asterwerfer : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            //gerade am Sterben oder am Enstehen, also alles auf Anfang zurück
+            gestartet = false;
+            beendet = false;
+            starten = false;
+            enden = false;
+            jetzt = false;
+            StopAllCoroutines();
+        }
         
     }
-        IEnumerator Raus(GameObject go, float z)
+    void LateUpdate()
+    {
+        if(gLogic.gameOver || (gLogic.stage != gLogic.istStage && !gLogic.startPhase))  //stage ist vorbei oder gameover
+        {
+            Destroy(gameObject);    //wir zerstören uns
+        }
+    }
+    IEnumerator Starte(float st)    //wann geht es los?
+    {
+        yield return new WaitForSeconds(st);
+        gestartet = true; 
+    }
+    IEnumerator Beende(float et)    //wann ist es vorbei?
+    {
+        yield return new WaitForSeconds(et);
+        beendet = true;
+    }
+
+    IEnumerator Raus(GameObject go, float z)
         {
             // erst wenn z Sekunden abgelaufen
             yield return (new WaitForSeconds(z));

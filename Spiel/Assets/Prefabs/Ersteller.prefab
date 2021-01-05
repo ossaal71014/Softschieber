@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5112414149179481064}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.16, y: -2.96, z: 3.9367485}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -49,3 +49,14 @@ MonoBehaviour:
     type: 3}
   ShipAddPrefab: {fileID: 8958169168948020724, guid: d633a72946540a34b918b80f89800dec,
     type: 3}
+  asteroidWerfer: {fileID: 5644989984739252271, guid: f078e86ffa1b65f43908a7f7362d8528,
+    type: 3}
+  EnemyWerferR: {fileID: 579694018155698341, guid: 83c1795d6a930fa44acee6046b27208e,
+    type: 3}
+  EnemyWerferL: {fileID: 6883462961353340295, guid: 1b48469a54a598542be136658e76d7cc,
+    type: 3}
+  EnemyWerferAusweich: {fileID: 88019924059689826, guid: f3106dad565e22041934754191860b4f,
+    type: 3}
+  EnemyWerferLooping: {fileID: 5793470641026969680, guid: 911917b361c5c274ca6c523e6deca0c1,
+    type: 3}
+  istStage: 0

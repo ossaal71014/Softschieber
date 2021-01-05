@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2100295225597499259}
   - component: {fileID: 9075016266438299839}
   m_Layer: 0
-  m_Name: explo3
+  m_Name: explo5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 36edd40be98fa4746828efb5e072b36d, type: 3}
-  m_Color: {r: 0.8773585, g: 0.45701584, b: 0.07035423, a: 1}
+  m_Color: {r: 0.90588236, g: 0.19177051, b: 0.090196095, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

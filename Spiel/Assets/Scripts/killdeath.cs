@@ -17,6 +17,7 @@ public class killdeath : MonoBehaviour
     private GameLogic gLogic;
     public enum sendTyp { asteroid, shiphorizontal, shipvertical, shipavoid};
     public sendTyp typ = sendTyp.asteroid;
+    private bool vatterWeg = false;
 
     //public Renderer renderer;
     //public Collider2D collider2D;
@@ -33,7 +34,11 @@ public class killdeath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(gLogic.todesPhase && !vatterWeg)
+        {
+            vatterWeg = true;
+            gameObject.SendMessage("Vatterlos", SendMessageOptions.DontRequireReceiver);
+        }
     }
     void Sende()
     {
@@ -49,17 +54,19 @@ public class killdeath : MonoBehaviour
                 {
                     gLogic.ship1Hit++;
                     gameObject.SendMessage("Tot", SendMessageOptions.DontRequireReceiver);
-                        break;
+                    break;
                 }
             case sendTyp.shipvertical:
                 {
                     gLogic.ship2Hit++;
-                        break;
+                    gameObject.SendMessage("Tot", SendMessageOptions.DontRequireReceiver);
+                    break;
                 }
             case sendTyp.shipavoid:
                 {
                     gLogic.ship3Hit++;
-                        break;
+                    gameObject.SendMessage("Tot", SendMessageOptions.DontRequireReceiver);
+                    break;
                 }
         }
     }

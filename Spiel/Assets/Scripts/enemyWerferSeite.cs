@@ -10,7 +10,10 @@ public class enemyWerferSeite : MonoBehaviour
     private GameLogic gLogic;
     public float ersterWurf = 10f;
     public float wurfrate = 0.25f;
+    public float endzeit = 99f;
     private bool beginn;
+    private bool enden; //coroutine fürs enden gestartet?
+    private bool beendet; // aktion beendet?
 
     void Awake()
     {
@@ -21,7 +24,10 @@ public class enemyWerferSeite : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        jetzt = false;
+        beginn = true;
+        enden = false;
+        beendet = false; 
     }
 
     // Update is called once per frame
@@ -29,12 +35,17 @@ public class enemyWerferSeite : MonoBehaviour
     {
         if(!gLogic.startPhase && !gLogic.todesPhase)
         {
-            if (beginn)
+            if (!enden) //sind wir am Beenden
+            {
+                StartCoroutine(Beende(endzeit));
+                enden = true; 
+            }
+            if (beginn && ! beendet)
             {
                 beginn = false;
                 StartCoroutine(Warte(ersterWurf));
             }
-            if (jetzt)
+            if (jetzt && !beendet)
             {
                 Instantiate(enemy, transform.position, Quaternion.identity);
                 jetzt = false;
@@ -43,9 +54,24 @@ public class enemyWerferSeite : MonoBehaviour
         }
         if (gLogic.startPhase)
         {
+            StopAllCoroutines();
             beginn = true;
             jetzt = false;
+            beendet = false;
+            enden = false;
         }
+    }
+    void LateUpdate()
+    {
+        if(gLogic.gameOver ||(gLogic.stage !=gLogic.istStage && !gLogic.startPhase))
+        {
+            Destroy(gameObject);
+        }
+    }
+    IEnumerator Beende(float et)    //wann ist es vorbei?
+    {
+        yield return new WaitForSeconds(et);
+        beendet = true;
     }
     IEnumerator Warte(float t)
     {

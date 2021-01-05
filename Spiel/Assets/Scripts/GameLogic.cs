@@ -45,6 +45,8 @@ public class GameLogic : MonoBehaviour
     public bool makeShield;
     public bool makeShip;
 
+    public bool stageWechsel;
+    public int istStage = 0;
 
 
     // Start is called before the first frame update
@@ -76,6 +78,8 @@ public class GameLogic : MonoBehaviour
             Ship3Total = 0;
             asteroidHit = 0;
             asterTotal = 0;
+            stageWechsel = false;
+            istStage = stage - 1;
         }
         if(score >= calcScore + extraShip)
         {
@@ -106,17 +110,28 @@ public class GameLogic : MonoBehaviour
             ship3Hit = 0;
             makeShield = true;
         }
+
+        //Stagewechsel
+        if (stageWechsel)
+        {
+            stageWechsel = false;
+            anzeigeIstAn = false;   //Stageanzeige neu starten
+            stageAnzeige = true;
+        }
         if (!todesPhase && !startPhase && stageAnzeige && !anzeigeIstAn)
         {
             GetComponent<AudioSource>().clip = startMusik;
             GetComponent<AudioSource>().Play();
             anzeigeIstAn = true;
             StartCoroutine(WarteAnzeige());
+            istStage = stage;   //wenn Stageanzeige erscsheind sind wir im neuen Stage
+            StartCoroutine("StageZeit");
         }
 
         //Steuerung der Todesphase
         if (todesPhase && !todWarte)
         {
+            StopCoroutine("StageZeit");
             StartCoroutine(Warte());
             todWarte = true;
             GetComponent<AudioSource>().clip = totMusik;
@@ -158,6 +173,12 @@ public class GameLogic : MonoBehaviour
                 allstars[2].lengthScale = oldScale[2];
             }
         }
+    }
+    IEnumerator StageZeit()
+    {
+        yield return new WaitForSeconds(75f); //Zeit die eine Stage andauert
+        stageWechsel = true;
+        stage++; 
     }
     IEnumerator Warte()
     {
