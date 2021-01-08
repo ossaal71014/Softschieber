@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5644989984739252269}
   - component: {fileID: 5644989984739252268}
   m_Layer: 0
-  m_Name: Asteroidwerfer
+  m_Name: AsteroidWerfer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5644989984739252271}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.8, y: 6, z: 8.088828}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -48,3 +48,6 @@ MonoBehaviour:
   links: -2.8
   rechts: 2.8
   speed: 10
+  startzeit: 0
+  endzeit: 99
+  wurfZeit: 10

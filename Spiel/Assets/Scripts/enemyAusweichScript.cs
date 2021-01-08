@@ -11,7 +11,7 @@ public class enemyAusweichScript : MonoBehaviour
     private Animator anim;
     public LayerMask layer;
 
-    public float schussrate = 0.8f;
+    public float schussrate = 0.2f;
     public float ersterSchuss = 1.5f;
     public GameObject Schuss;
     private bool jetzt;
@@ -46,7 +46,7 @@ public class enemyAusweichScript : MonoBehaviour
         {
             transform.Translate(Vector3.right * Time.deltaTime * istAusweich);
         }
-        if (nachrechts)
+        if (nachlinks)
         {
             transform.Translate(Vector3.left * Time.deltaTime * istAusweich);
         }
@@ -78,7 +78,7 @@ public class enemyAusweichScript : MonoBehaviour
             }
         }
         if (hit2.collider != null)
-        {
+        { 
             if (!nachlinks && !nachrechts && hit2.collider.CompareTag("Player"))
             {
                 istAusweich = 0;
@@ -93,7 +93,7 @@ public class enemyAusweichScript : MonoBehaviour
         jetzt = true;
     }
     void Tot()
-    {
+     {
         tot = true;
     }
 }

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7734953333768534246}
   - component: {fileID: 7734953333768534247}
   - component: {fileID: 7734953333768534248}
+  - component: {fileID: 3749141103009472051}
   m_Layer: 0
   m_Name: enemy_r
   m_TagString: Enemy
@@ -373,6 +374,18 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 256
-  schussrate: 0.8
-  ersterSchuss: 0.7
+  schussrate: 0.2
+  ersterSchuss: 1
   Schuss: {fileID: 713871538982643132, guid: f5d9b2f56f0220d48a31ffc362bd06ee, type: 3}
+--- !u!114 &3749141103009472051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4414922374395598532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa164251f827f974caf1d775419b8f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

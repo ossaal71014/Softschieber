@@ -68,7 +68,7 @@ public class Asterwerfer : MonoBehaviour
                 {
                     wer = aster2;
                 }
-                zeit = Random.Range(0.5f, wurfZeit);
+                zeit = Random.Range(2.5f, wurfZeit);
                 StartCoroutine(Raus(wer, zeit));
             }
 

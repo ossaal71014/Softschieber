@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1535343832683426277, guid: 238e2ca5e41b92a469d7fbdf9601c7f8, type: 3}
   ersterWurf: 12
-  wurfrate: 0.15
+  wurfrate: 0.05
   endzeit: 99
 --- !u!114 &6883462961353340292
 MonoBehaviour:
