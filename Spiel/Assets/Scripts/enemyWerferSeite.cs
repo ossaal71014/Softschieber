@@ -33,7 +33,7 @@ public class enemyWerferSeite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!gLogic.startPhase && !gLogic.todesPhase)
+        if(!gLogic.startPhase && !gLogic.todesPhase && !gLogic.gameOver)
         {
             if (!enden) //sind wir am Beenden
             {

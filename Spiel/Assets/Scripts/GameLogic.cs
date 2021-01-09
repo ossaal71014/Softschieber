@@ -68,6 +68,10 @@ public class GameLogic : MonoBehaviour
     {
         if (spielStart)
         {
+            macheSpieler = true;
+            startPhase = true;
+            stageAnzeige = true;
+
             score = 0;
             calcScore = 0;
             ship1Hit = 0;
