@@ -95,7 +95,8 @@ public class GUIScript : MonoBehaviour
             neustarthigh = true;
             neustarthinweis = true;
             score = 0;
-            ships = 3;
+            ships = 2;
+            hiPunkte[0] = 20;
         }
         gLogic.score = score;
         homi = Screen.width / 2;
@@ -168,7 +169,7 @@ public class GUIScript : MonoBehaviour
                 {
                     namenseingabe = false;
                     int zaehler = 10;
-                    while (zaehler > 0 && score > hiPunkte[zaehler])                                    // vgl von letzten Highscoreplatz ausgehend mit aktuellen punkten
+                    while (zaehler > 0 && score > hiPunkte[zaehler])                                    // vgl. von letzten Highscoreplatz ausgehend mit aktuellen punkten
                     {
                         zaehler--;
                     }
@@ -187,6 +188,7 @@ public class GUIScript : MonoBehaviour
                     }
                     PlayerPrefs.Save();
                 }
+                GUI.FocusControl("Eingabe");
 
             }
 

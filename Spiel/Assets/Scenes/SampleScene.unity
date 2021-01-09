@@ -846,6 +846,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Killzone oben
       objectReference: {fileID: 0}
+    - target: {fileID: 8566405372825681264, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: skin3
+      value: 
+      objectReference: {fileID: 11400000, guid: 217efd8c6395c8441a7e64841b0a7d20,
+        type: 2}
+    - target: {fileID: 8566405372825681264, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: tab1Skin
+      value: 
+      objectReference: {fileID: 11400000, guid: 7dbbc17b8b31edd47a90e241b28d2f14,
+        type: 2}
+    - target: {fileID: 8566405372825681264, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: tab1aSkin
+      value: 
+      objectReference: {fileID: 11400000, guid: 0cf9358a2fa739a4f81d388594560f90,
+        type: 2}
+    - target: {fileID: 8566405372825681264, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: tab2Skin
+      value: 
+      objectReference: {fileID: 11400000, guid: c3b10c93874296c4b8a5059035445d14,
+        type: 2}
+    - target: {fileID: 8566405372825681264, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: tab2aSkin
+      value: 
+      objectReference: {fileID: 11400000, guid: 2b4ab0c3dc835f8479cad6f7ea60c847,
+        type: 2}
     - target: {fileID: 8566405372825681265, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
       propertyPath: m_LocalPosition.x
