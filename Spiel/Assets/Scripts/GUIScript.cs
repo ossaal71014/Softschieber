@@ -38,6 +38,10 @@ public class GUIScript : MonoBehaviour
     private bool neustarthinweis = true;// timer für hinweis neu starten
     public float hinweisZeit = 1f;      // hinweiszeit
 
+    private string[] hiName = new string[11];   // array für 10 namen des highscores
+    private int[] hiPunkte = new int[11];       // array für 10 punkte des highscores
+    public string meinName = "";
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -50,6 +54,36 @@ public class GUIScript : MonoBehaviour
         namenseingabe = false;
         wartemal = false;
         goAnzeige = false;
+        
+        if(!PlayerPrefs.HasKey("1Name"))                // Highscore-Liste 
+        {
+            PlayerPrefs.SetString("1Name", "basti");
+            PlayerPrefs.SetInt("1Score", 10000);
+            PlayerPrefs.SetString("2Name", "tom");
+            PlayerPrefs.SetInt("2Score", 9000);
+            PlayerPrefs.SetString("3Name", "carsten");
+            PlayerPrefs.SetInt("3Score", 8000);
+            PlayerPrefs.SetString("4Name", "uli");
+            PlayerPrefs.SetInt("4Score", 7000);
+            PlayerPrefs.SetString("5Name", "andreas");
+            PlayerPrefs.SetInt("5Score", 6000);
+            PlayerPrefs.SetString("6Name", "serge");
+            PlayerPrefs.SetInt("6Score", 5000);
+            PlayerPrefs.SetString("7Name", "nigel");
+            PlayerPrefs.SetInt("7Score", 4000);
+            PlayerPrefs.SetString("8Name", "joseph");
+            PlayerPrefs.SetInt("8Score", 3000);
+            PlayerPrefs.SetString("9Name", "bill");
+            PlayerPrefs.SetInt("9Score", 2000);
+            PlayerPrefs.SetString("10Name", "maxe");
+            PlayerPrefs.SetInt("10Score", 10);
+            PlayerPrefs.Save();
+        }
+        for(int i=1; i<11; i++)
+        {
+            hiName[i] = PlayerPrefs.GetString(i+"Name");
+            hiPunkte[i] = PlayerPrefs.GetInt(i+"Score");
+        }
     }
 
     // Update is called once per frame
@@ -121,8 +155,38 @@ public class GUIScript : MonoBehaviour
                 GUI.Label(new Rect(homi - 120, vemi - 50, 300, 100), "game over");
             }
 
-            if (namenseingabe) // wenn unter den besten x, dann namen eingeben
-            { 
+            if (namenseingabe)                                                                          // wenn unter den besten x, dann namen eingeben
+            {
+                GUI.skin = skin2;
+                GUI.Label(new Rect(homi - 200, vemi - 190, 400, 220), "you have reached\na top 10\nhighscore !\n\nplease\nenter name");
+                GUI.SetNextControlName("Eingabe");
+                meinName = GUI.TextField(new Rect(homi - 100, vemi + 50, 200, 50), meinName, 10);       // max. 10 zeichen pro name
+                meinName = meinName.ToLower();                                                          // nur kleinbuchstaben
+
+                GUI.SetNextControlName("Button");
+                if(GUI.Button(new Rect (homi -50, vemi + 120, 100, 50), "ok") || (Event.current.type == EventType.KeyUp && Event.current.keyCode == KeyCode.Return))
+                {
+                    namenseingabe = false;
+                    int zaehler = 10;
+                    while (zaehler > 0 && score > hiPunkte[zaehler])                                    // vgl von letzten Highscoreplatz ausgehend mit aktuellen punkten
+                    {
+                        zaehler--;
+                    }
+                    for (int s = 10; s < zaehler+1; s--)
+                    {
+                        hiPunkte[s] = hiPunkte[s - 1];
+                        hiName[s] = hiName[s - 1];
+                    }
+                    hiPunkte[zaehler + 1] = score;
+                    hiName[zaehler + 1] = meinName;
+                    hiPunkte[0] = zaehler + 1;
+                    for (int n = 1; n < 11; n++)
+                    {
+                        PlayerPrefs.SetString(n+"Name", hiName[n]);
+                        PlayerPrefs.SetInt(n+"Score", hiPunkte[n]);
+                    }
+                    PlayerPrefs.Save();
+                }
 
             }
 
@@ -151,7 +215,36 @@ public class GUIScript : MonoBehaviour
                 }
                 if(highscore)
                 {
-
+                    GUI.BeginGroup(new Rect (homi - 185, vemi - 250, 370, 450));
+                    GUI.skin = skin2;
+                    GUI.Label(new Rect(30, 80, 300, 50), "highscores");
+                    bool zeileGerade = false;           // um Zeilen abwechselnd hell dunkel zu machen      
+                    int yy = 130;                       // Startwert erster Tabelle
+                    for(int i=1; i<11; i++)
+                    {
+                        if (!zeileGerade)
+                        {
+                            GUI.skin = tab1Skin;
+                            if (hiPunkte[0] == i)
+                            {
+                                GUI.skin = tab2Skin;
+                            }
+                        }
+                        else
+                        {
+                            GUI.skin = tab1aSkin;
+                            if (hiPunkte[i] == i)
+                            {
+                                GUI.skin = tab2aSkin;
+                            }
+                        }
+                            GUI.Label(new Rect (0, yy, 50, 30), ""+i);
+                            GUI.Label(new Rect (50, yy, 170, 30), hiName[i]);
+                            GUI.Label(new Rect(220, yy, 150, 30), ""+hiPunkte[i]);
+                            yy += 30;
+                            zeileGerade = !zeileGerade;
+                        }
+                        GUI.EndGroup();
                 }
                 else
                 {
@@ -179,6 +272,11 @@ public class GUIScript : MonoBehaviour
     {
         yield return new WaitForSeconds(7f);
         goAnzeige = false;
+        if(score > hiPunkte[10])
+        {
+            namenseingabe = true;
+            meinName = "";
+        }
     }
 
     IEnumerator HighscoreTimer()
