@@ -64,6 +64,7 @@ public class GUIScript : MonoBehaviour
         }
         gLogic.score = score;
         homi = Screen.width / 2;
+        vemi = Screen.height / 2;
         praefix = "00000";
 
         // Nullen werden davorgestellt wenn Wert 1-stellig, 2-stellig usw. ist 
@@ -107,7 +108,7 @@ public class GUIScript : MonoBehaviour
         if (gLogic.gameOver)
         {
             GUI.skin = skin2;
-            GUI.Label(new Rect(homi - 150, vemi - 50, 300, 100), "game over");
+            GUI.Label(new Rect(homi - 120, vemi - 50, 300, 100), "game over");
 
             if (wartemal) { }
 
@@ -119,13 +120,13 @@ public class GUIScript : MonoBehaviour
         }
 
         GUI.skin = skin2;
-        if (gLogic.gameOver)
-        {
-            GUI.Label(new Rect(homi - 120, Screen.height/2 -50, 300, 100), "game over");
-        }
+        //if (gLogic.gameOver)
+        //{
+        //    GUI.Label(new Rect(homi - 120, Screen.height/2 -50, 300, 100), "game over");
+        //}
         if (gLogic.stageAnzeige && gLogic.anzeigeIstAn)
         {
-            GUI.Label(new Rect(homi - 80, Screen.height/ 2 - 50, 300, 100), "stage "+gLogic.stage);
+            GUI.Label(new Rect(homi - 80, vemi - 50, 300, 100), "stage "+gLogic.stage);
         }
     }
 }
