@@ -9,9 +9,9 @@ public class abschuss : MonoBehaviour
     public float typ1Volume = 0.5f;
 
     public GameObject typ1;                             //schuss1 (Projektil)
-    public float schussrate = 0.8f;                     // Grundwartezeit der Schüsse
-    public float nachladezeit = 0.4f;                   // Pause zwischen den Schüssen
-    public int schussladung = 2;                        
+    public float schussrate = 0.4f;                     // Grundwartezeit der Schüsse
+    public float nachladezeit = 0.1f;                   // Pause zwischen den Schüssen
+    public int schussladung = 20;                        
     public int schussladungMax = 2;
     public bool jetzt = true;                           //Variable zur Abfrage wann man schiessen darf
     private bool gestartet = false;

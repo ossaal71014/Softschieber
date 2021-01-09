@@ -5134,7 +5134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6183effb79efe478e3994a963835b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 3
+  maxSpeed: 4
   analog: 1
   antrieb: {fileID: 439700156}
   istSchild: 10

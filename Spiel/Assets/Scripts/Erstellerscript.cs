@@ -96,6 +96,16 @@ public class Erstellerscript : MonoBehaviour
                         SchiffLooping(50f, 70f, 2f, 3);
                         break;
                     }
+
+                case 5:
+                    {
+                        Asteroiden(0f, 20f, 5f); //startzeit, endzeit, wurfrate
+                        SchiffLinks(10f, 30f, 0.5f);
+                        SchiffRechts(30f, 40f, 0.5f);                       
+                        SchiffAusweich(0f, 20f, 5f, 1); //startzeit, endzeit, rate, zyklus
+                        SchiffLooping(0f, 20f, 5f, 1); //startzeit, endzeit, rate, zyklus                  
+                        break;
+                    }
             }
             istStage = gLogic.stage;
         }

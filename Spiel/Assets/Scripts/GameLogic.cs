@@ -180,7 +180,7 @@ public class GameLogic : MonoBehaviour
     }
     IEnumerator StageZeit()
     {
-        yield return new WaitForSeconds(75f); //Zeit die eine Stage andauert
+        yield return new WaitForSeconds(30f); //Zeit die eine Stage andauert
         stageWechsel = true;
         stage++; 
     }
