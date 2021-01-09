@@ -144,14 +144,24 @@ public class GUIScript : MonoBehaviour
                     gLogic.spielStart = true;
                     wartemal = true;
                 }
+                if(neustarthigh)            // starte highscore counter neu
+                {
+                    neustarthigh = false;
+                    StartCoroutine(HighscoreTimer());
+                }
+                if(highscore)
+                {
+
+                }
+                else
+                {
+                    GUI.skin = skin2;
+                    GUI.Label(new Rect(homi - 120, vemi - 50, 300, 100), "-=shooter=-");
+                }
             }
         }
 
         GUI.skin = skin2;
-        //if (gLogic.gameOver)
-        //{
-        //    GUI.Label(new Rect(homi - 120, Screen.height/2 -50, 300, 100), "game over");
-        //}
         if (gLogic.stageAnzeige && gLogic.anzeigeIstAn)
         {
             GUI.Label(new Rect(homi - 80, vemi - 50, 300, 100), "stage "+gLogic.stage);
@@ -169,5 +179,12 @@ public class GUIScript : MonoBehaviour
     {
         yield return new WaitForSeconds(7f);
         goAnzeige = false;
+    }
+
+    IEnumerator HighscoreTimer()
+    {
+        yield return new WaitForSeconds(highZeit);
+        highscore = !highscore;
+        neustarthigh = true;
     }
 }
