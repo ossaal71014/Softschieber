@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GUIScript : MonoBehaviour
@@ -107,16 +108,43 @@ public class GUIScript : MonoBehaviour
 
         if (gLogic.gameOver)
         {
-            GUI.skin = skin2;
-            GUI.Label(new Rect(homi - 120, vemi - 50, 300, 100), "game over");
+            if (wartemal) 
+            {
+                StartCoroutine(Warte());
+                goAnzeige = true;
+                wartemal = false;
+            }
 
-            if (wartemal) { }
+            if (goAnzeige) // anzeige von gameover
+            {
+                GUI.skin = skin2;
+                GUI.Label(new Rect(homi - 120, vemi - 50, 300, 100), "game over");
+            }
 
-            if (goAnzeige) { }
+            if (namenseingabe) // wenn unter den besten x, dann namen eingeben
+            { 
 
-            if (namenseingabe) { }
+            }
 
-            if (!goAnzeige && !namenseingabe) { }
+            if (!goAnzeige && !namenseingabe) 
+            {
+                if(neustarthinweis)             // starte den hinweis neu
+                {
+                    neustarthinweis = false;
+                    StartCoroutine(HinweisTimer());
+                }
+                if(hinweis)
+                {
+                  //  GUI.skin = tab1aSkin;
+                    GUI.Label(new Rect(homi - 120, vemi * 2 - 50, 300, 30), "press fire to start");
+                }
+                if(Input.GetButton("Fire1"))
+                {
+                    gLogic.gameOver = false;
+                    gLogic.spielStart = true;
+                    wartemal = true;
+                }
+            }
         }
 
         GUI.skin = skin2;
@@ -128,5 +156,18 @@ public class GUIScript : MonoBehaviour
         {
             GUI.Label(new Rect(homi - 80, vemi - 50, 300, 100), "stage "+gLogic.stage);
         }
+    }
+
+    IEnumerator HinweisTimer()
+    {
+        yield return new WaitForSeconds(hinweisZeit);
+        hinweis = !hinweis;
+        neustarthinweis = true;
+    }
+
+    IEnumerator Warte()
+    {
+        yield return new WaitForSeconds(7f);
+        goAnzeige = false;
     }
 }

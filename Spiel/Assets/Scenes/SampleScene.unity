@@ -931,6 +931,36 @@ PrefabInstance:
       propertyPath: stage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: gameOver
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: startPhase
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: spielStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: macheSpieler
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: stageAnzeige
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: todeszeit
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8566405372825681293, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
       propertyPath: m_Name
