@@ -95,7 +95,7 @@ public class GUIScript : MonoBehaviour
             neustarthigh = true;
             neustarthinweis = true;
             score = 0;
-            ships = 2;
+            ships = 4;
             hiPunkte[0] = 20;
         }
         gLogic.score = score;

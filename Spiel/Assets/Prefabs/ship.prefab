@@ -5137,7 +5137,7 @@ MonoBehaviour:
   maxSpeed: 3
   analog: 1
   antrieb: {fileID: 439700156}
-  istSchild: 1
+  istSchild: 10
   explo: {fileID: 8906653308569181861, guid: e7a1440b01949fa458a06f74abd395e4, type: 3}
   schildscript: {fileID: 2221707180091882107}
 --- !u!95 &1679034801
