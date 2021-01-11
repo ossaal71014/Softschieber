@@ -876,6 +876,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2b4ab0c3dc835f8479cad6f7ea60c847,
         type: 2}
+    - target: {fileID: 8566405372825681264, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: shieldTex
+      value: 
+      objectReference: {fileID: 2800000, guid: c27a8be1e98d5e84fa117f4fb25bd6e3, type: 3}
+    - target: {fileID: 8566405372825681264, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: backgroundTex
+      value: 
+      objectReference: {fileID: 2800000, guid: 5da32143b852e1a479e34c6600db4496, type: 3}
+    - target: {fileID: 8566405372825681264, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: shipTex
+      value: 
+      objectReference: {fileID: 2800000, guid: 50a0744448c8cde45867c2ced107c29f, type: 3}
     - target: {fileID: 8566405372825681265, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -959,7 +974,7 @@ PrefabInstance:
     - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
       propertyPath: stage
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}

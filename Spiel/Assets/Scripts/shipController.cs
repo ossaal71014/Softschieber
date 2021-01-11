@@ -1,12 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class shipController : MonoBehaviour
 {
-    public float maxSpeed = 2f;
+    public float maxSpeed = 3f;
     // instantane Bewegung oder mit Beschleunigung
     public bool analog = true;
 
@@ -105,16 +102,22 @@ public class shipController : MonoBehaviour
             // Antrieb-Partikel -> länger sichbar wenn Beschleunigung nach vorne, wenn "rückwärts" -> kürzere Sichbarkeit der Partikel
             if (Input.GetAxisRaw("Vertical") > 0f)
             {
+#pragma warning disable CS0618 // Typ oder Element ist veraltet
                 antrieb.startLifetime = 0.45f;
+#pragma warning restore CS0618 // Typ oder Element ist veraltet
             }
             else
             {
+#pragma warning disable CS0618 // Typ oder Element ist veraltet
                 antrieb.startLifetime = 0.25f;
+#pragma warning restore CS0618 // Typ oder Element ist veraltet
             }
 
             if (Input.GetAxisRaw("Vertical") < 0f)
             {
+#pragma warning disable CS0618 // Typ oder Element ist veraltet
                 antrieb.startLifetime = 0.07f;
+#pragma warning restore CS0618 // Typ oder Element ist veraltet
             }
 
 

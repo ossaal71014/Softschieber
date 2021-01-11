@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class GUIScript : MonoBehaviour
@@ -95,7 +93,7 @@ public class GUIScript : MonoBehaviour
             neustarthigh = true;
             neustarthinweis = true;
             score = 0;
-            ships = 4;
+            ships = 2;
             hiPunkte[0] = 20;
         }
         gLogic.score = score;
