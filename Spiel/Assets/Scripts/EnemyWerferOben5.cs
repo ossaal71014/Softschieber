@@ -87,10 +87,10 @@ public class EnemyWerferOben5 : MonoBehaviour
     }
     void LateUpdate()
     {
-        //if(gLogic.gameOver || (gLogic.stage !=gLogic.istStage && !gLogic.startPhase))
-        //{
-            //Destroy(gameObject); //zerstöre das Schiff
-        //}
+        if (gLogic.gameOver || (gLogic.stage != gLogic.istStage && !gLogic.startPhase))
+        {
+            Destroy(gameObject); //zerstöre das Schiff
+        }
     }
     IEnumerator Starte(float st)    //wann geht es los
     {

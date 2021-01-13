@@ -55,24 +55,24 @@ public class GUIScript : MonoBehaviour
         
         if(!PlayerPrefs.HasKey("1Name"))                // Highscore-Liste 
         {
-            PlayerPrefs.SetString("1Name", "basti");
-            PlayerPrefs.SetInt("1Score", 10000);
+            PlayerPrefs.SetString("1Name", "fritz");
+            PlayerPrefs.SetInt("1Score", 1000);
             PlayerPrefs.SetString("2Name", "tom");
-            PlayerPrefs.SetInt("2Score", 9000);
+            PlayerPrefs.SetInt("2Score", 900);
             PlayerPrefs.SetString("3Name", "carsten");
-            PlayerPrefs.SetInt("3Score", 8000);
+            PlayerPrefs.SetInt("3Score", 800);
             PlayerPrefs.SetString("4Name", "uli");
-            PlayerPrefs.SetInt("4Score", 7000);
+            PlayerPrefs.SetInt("4Score", 700);
             PlayerPrefs.SetString("5Name", "andreas");
-            PlayerPrefs.SetInt("5Score", 6000);
+            PlayerPrefs.SetInt("5Score", 600);
             PlayerPrefs.SetString("6Name", "serge");
-            PlayerPrefs.SetInt("6Score", 5000);
+            PlayerPrefs.SetInt("6Score", 500);
             PlayerPrefs.SetString("7Name", "nigel");
-            PlayerPrefs.SetInt("7Score", 4000);
+            PlayerPrefs.SetInt("7Score", 400);
             PlayerPrefs.SetString("8Name", "joseph");
-            PlayerPrefs.SetInt("8Score", 3000);
+            PlayerPrefs.SetInt("8Score", 300);
             PlayerPrefs.SetString("9Name", "bill");
-            PlayerPrefs.SetInt("9Score", 2000);
+            PlayerPrefs.SetInt("9Score", 200);
             PlayerPrefs.SetString("10Name", "maxe");
             PlayerPrefs.SetInt("10Score", 10);
             PlayerPrefs.Save();
@@ -93,7 +93,7 @@ public class GUIScript : MonoBehaviour
             neustarthigh = true;
             neustarthinweis = true;
             score = 0;
-            ships = 2;
+            ships = 3;
             hiPunkte[0] = 20;
         }
         gLogic.score = score;
@@ -200,7 +200,7 @@ public class GUIScript : MonoBehaviour
                 if(hinweis)
                 {
                   //  GUI.skin = tab1aSkin;
-                    GUI.Label(new Rect(homi - 120, vemi * 2 - 50, 300, 30), "press fire to start");
+                    GUI.Label(new Rect(homi - 105, vemi * 2 - 50, 300, 30), "'strg' -> starten");
                 }
                 if(Input.GetButton("Fire1"))
                 {
@@ -249,7 +249,7 @@ public class GUIScript : MonoBehaviour
                 else
                 {
                     GUI.skin = skin2;
-                    GUI.Label(new Rect(homi - 120, vemi - 50, 300, 100), "-=shooter=-");
+                    GUI.Label(new Rect(homi - 140, vemi - 50, 300, 100), "se_shooter");
                 }
             }
         }

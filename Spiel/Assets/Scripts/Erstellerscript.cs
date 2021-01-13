@@ -50,7 +50,11 @@ public class Erstellerscript : MonoBehaviour
         if (gLogic.gameOver)
         {
             istStage = 0; //reset damit es anfängt
+            gLogic.stage = 1;       //////////////
         }
+
+
+        
         if(gLogic.stage != istStage && !gLogic.gameOver && !gLogic.startPhase)
         {
             switch (gLogic.stage)
@@ -143,6 +147,10 @@ public class Erstellerscript : MonoBehaviour
         eascript.startzeit = start;
         eascript.wurfZeit = r;
         eascript.sollzyklus = zyklus;
+        if(gLogic.gameOver)
+        {
+            Destroy(shipA);
+        }
     }
     void SchiffLooping(float start, float ende, float r, int zyklus)
     {

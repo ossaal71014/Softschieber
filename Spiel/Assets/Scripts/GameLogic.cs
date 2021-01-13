@@ -127,7 +127,7 @@ public class GameLogic : MonoBehaviour
             GetComponent<AudioSource>().Play();
             anzeigeIstAn = true;
             StartCoroutine(WarteAnzeige());
-            istStage = stage;   //wenn Stageanzeige erscsheind sind wir im neuen Stage
+            istStage = stage;   //wenn Stageanzeige erscheint sind wir im neuen Stage
             StartCoroutine("StageZeit");
         }
 
@@ -179,7 +179,7 @@ public class GameLogic : MonoBehaviour
     }
     IEnumerator StageZeit()
     {
-        yield return new WaitForSeconds(30f); //Zeit die eine Stage andauert
+        yield return new WaitForSeconds(75f); //Zeit die eine Stage andauert
         stageWechsel = true;
         stage++; 
     }
