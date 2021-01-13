@@ -36,10 +36,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = 0f;
         istPause = true;
     }
-    public void SaveGame()
-    {
-        
-    }
+   
     public void QuitGame()
     {
         Application.Quit();
