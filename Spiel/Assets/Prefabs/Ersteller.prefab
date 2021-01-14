@@ -59,4 +59,8 @@ MonoBehaviour:
     type: 3}
   EnemyWerferLooping: {fileID: 5793470641026969680, guid: 911917b361c5c274ca6c523e6deca0c1,
     type: 3}
+  HighwayWerferR: {fileID: 7342917083098525319, guid: b9adaa6b599f5a243b5fd1324c0b726a,
+    type: 3}
+  HighwayWerferL: {fileID: 1314222306053410758, guid: 780ab3c27fd772540b5d5547c954edfc,
+    type: 3}
   istStage: 0

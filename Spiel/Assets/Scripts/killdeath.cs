@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class killdeath : MonoBehaviour
 {
-    // AUKOMMENIETERTES "SOUND-ZEUG" und renderer/collider2D waren Versuche das hinzubekommen von Teil 7
-
     public AudioSource Hitaudio;
     public AudioSource Killaudio;
     public GameObject explo;
@@ -18,8 +16,6 @@ public class killdeath : MonoBehaviour
     public sendTyp typ = sendTyp.asteroid;
     private bool vatterWeg = false;
 
-    //public Renderer renderer;
-    //public Collider2D collider2D;
 
     // Start is called before the first frame update
     void Awake()
