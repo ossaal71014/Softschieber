@@ -72,8 +72,8 @@ public class Erstellerscript : MonoBehaviour
                         SchiffRechts(25f, 40f, 0.4f);
                         SchiffLinks(50f, 67f, 0.5f);
                         SchiffRechts(52f, 69f, 0.65f);
-                        ZivilistenLinks(0f, 25f, 0.25f);
-                        ZivilistenRechts(25f, 40f, 0.4f);
+                        ZivilistenLinks(0f, 60f, 0.05f);
+                        ZivilistenRechts(25f, 60f, 0.05f);
                         break;
                     }
                     //Level 2
@@ -85,7 +85,9 @@ public class Erstellerscript : MonoBehaviour
                         SchiffLinks(10f, 30f, 0.25f);
                         SchiffRechts(30f, 40f, 0.3f);
                         SchiffLinks(50f, 65f, 0.5f);
-                        SchiffRechts(52f, 67f, 0.65f);                       
+                        SchiffRechts(52f, 67f, 0.65f);
+                        ZivilistenLinks(0f, 60f, 0.25f);
+                        ZivilistenRechts(25f, 60f, 0.4f);
                         break;
                     }
                     //Level 3
@@ -94,6 +96,8 @@ public class Erstellerscript : MonoBehaviour
                         SchiffAusweich(0f, 20f, 0.5f, 1); //startzeit, endzeit, rate, zyklus
                         SchiffAusweich(27f, 47f, 1.5f, 2);
                         SchiffAusweich(50f, 70f, 2f, 3);
+                        ZivilistenLinks(0f, 60f, 0.05f);
+                        ZivilistenRechts(25f, 60f, 0.05f);
                         break;
                     }
                     // Level 4
@@ -102,6 +106,8 @@ public class Erstellerscript : MonoBehaviour
                         SchiffLooping(0f, 20f, 3f, 1); //startzeit, endzeit, rate, zyklus
                         SchiffLooping(27f, 47f, 1.5f, 2);
                         SchiffLooping(50f, 70f, 2f, 3);
+                        ZivilistenLinks(0f, 60f, 0.05f);
+                        ZivilistenRechts(25f, 60f, 0.05f);
                         break;
                     }
 
@@ -111,7 +117,9 @@ public class Erstellerscript : MonoBehaviour
                         SchiffLinks(10f, 30f, 0.5f);
                         SchiffRechts(30f, 40f, 0.5f);                       
                         SchiffAusweich(0f, 20f, 5f, 1); //startzeit, endzeit, rate, zyklus
-                        SchiffLooping(0f, 20f, 5f, 1); //startzeit, endzeit, rate, zyklus                  
+                        SchiffLooping(0f, 20f, 5f, 1); //startzeit, endzeit, rate, zyklus  
+                        ZivilistenLinks(0f, 60f, 0.05f);
+                        ZivilistenRechts(25f, 60f, 0.05f);
                         break;
                     }
             }
