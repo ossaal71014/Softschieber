@@ -111,14 +111,14 @@ public class Erstellerscript : MonoBehaviour
                         break;
                     }
 
-                case 5:
+                default:
                     {
-                        Asteroiden(0f, 20f, 5f); //startzeit, endzeit, wurfrate
-                        SchiffLinks(10f, 30f, 0.5f);
-                        SchiffRechts(30f, 40f, 0.5f);                       
-                        SchiffAusweich(0f, 20f, 5f, 1); //startzeit, endzeit, rate, zyklus
-                        SchiffLooping(0f, 20f, 5f, 1); //startzeit, endzeit, rate, zyklus  
-                        ZivilistenLinks(0f, 60f, 0.05f);
+                        Asteroiden(0f, 70f, 2.5f); //startzeit, endzeit, wurfrate
+                        SchiffLinks(10f, 60f, 0.2f);
+                        SchiffRechts(30f, 60f, 0.2f);                       
+                        SchiffAusweich(0f, 60f, 2f, 1); //startzeit, endzeit, rate, zyklus
+                        SchiffLooping(0f, 60f, 2f, 1); //startzeit, endzeit, rate, zyklus  
+                        ZivilistenLinks(0f, 70f, 0.05f);
                         ZivilistenRechts(25f, 60f, 0.05f);
                         break;
                     }
