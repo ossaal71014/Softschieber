@@ -27,9 +27,6 @@ public class itemScript : MonoBehaviour
         {
             GetComponent<Renderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
-            //renderer.enabled = false;
-            //collider2D.enabled = false;
-            // Zerstöre Obejkt erst nach 2f
             Destroy(gameObject, 2f);
             GetComponent<AudioSource>().Play();
 

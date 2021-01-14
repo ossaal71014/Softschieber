@@ -87,6 +87,7 @@ public class enemyAusweichScript : MonoBehaviour
             }
         }
     }
+
     IEnumerator WarteSchuss(float z)
     {
         yield return new WaitForSeconds(z);

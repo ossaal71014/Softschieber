@@ -79,12 +79,7 @@ public class killdeath : MonoBehaviour
         }
 
         if (other.CompareTag("Player"))
-        {
-            //other.GetComponent<Renderer>().enabled = false;
-            //other.GetComponent<Collider2D>().enabled = false;
-            //renderer.enabled = false;
-            //collider2D.enabled = false;
-            // Zerstöre Obejkt erst nach 2f
+        {          
             Destroy(gameObject, 2f);
             // wenn gameObjekt auf Schiff trifft -> Explosion auslösen
             Instantiate(explo, transform.position, Quaternion.identity);
@@ -108,9 +103,6 @@ public class killdeath : MonoBehaviour
         if (leben <= 0)
         {
             gui.score += killPunkte;
-            //renderer.enabled = false;
-            //collider2D.enabled = false;
-            // Zerstöre Obejkt erst nach 2f
             Destroy(gameObject, 0.9f);
            
             

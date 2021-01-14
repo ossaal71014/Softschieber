@@ -147,10 +147,6 @@ public class Erstellerscript : MonoBehaviour
         eascript.startzeit = start;
         eascript.wurfZeit = r;
         eascript.sollzyklus = zyklus;
-        if(gLogic.gameOver)
-        {
-            Destroy(shipA);
-        }
     }
     void SchiffLooping(float start, float ende, float r, int zyklus)
     {
