@@ -15,6 +15,9 @@ public class Erstellerscript : MonoBehaviour
     public GameObject EnemyWerferAusweich;
     public GameObject EnemyWerferLooping;
 
+    public GameObject HighwayWerferR;
+    public GameObject HighwayWerferL;
+
     public int istStage = 0;
 
     private Vector3 machPosi;       //Position der Items
@@ -69,6 +72,8 @@ public class Erstellerscript : MonoBehaviour
                         SchiffRechts(25f, 40f, 0.4f);
                         SchiffLinks(50f, 67f, 0.5f);
                         SchiffRechts(52f, 69f, 0.65f);
+                        ZivilistenLinks(0f, 60f, 0.05f);
+                        ZivilistenRechts(25f, 60f, 0.05f);
                         break;
                     }
                     //Level 2
@@ -81,6 +86,8 @@ public class Erstellerscript : MonoBehaviour
                         SchiffRechts(30f, 40f, 0.3f);
                         SchiffLinks(50f, 65f, 0.5f);
                         SchiffRechts(52f, 67f, 0.65f);
+                        ZivilistenLinks(0f, 60f, 0.25f);
+                        ZivilistenRechts(25f, 60f, 0.4f);
                         break;
                     }
                     //Level 3
@@ -89,6 +96,8 @@ public class Erstellerscript : MonoBehaviour
                         SchiffAusweich(0f, 20f, 0.5f, 1); //startzeit, endzeit, rate, zyklus
                         SchiffAusweich(27f, 47f, 1.5f, 2);
                         SchiffAusweich(50f, 70f, 2f, 3);
+                        ZivilistenLinks(0f, 60f, 0.05f);
+                        ZivilistenRechts(25f, 60f, 0.05f);
                         break;
                     }
                     // Level 4
@@ -97,22 +106,27 @@ public class Erstellerscript : MonoBehaviour
                         SchiffLooping(0f, 20f, 3f, 1); //startzeit, endzeit, rate, zyklus
                         SchiffLooping(27f, 47f, 1.5f, 2);
                         SchiffLooping(50f, 70f, 2f, 3);
+                        ZivilistenLinks(0f, 60f, 0.05f);
+                        ZivilistenRechts(25f, 60f, 0.05f);
                         break;
                     }
 
-                case 5:
+                default:
                     {
-                        Asteroiden(0f, 20f, 5f); //startzeit, endzeit, wurfrate
-                        SchiffLinks(10f, 30f, 0.5f);
-                        SchiffRechts(30f, 40f, 0.5f);                       
-                        SchiffAusweich(0f, 20f, 5f, 1); //startzeit, endzeit, rate, zyklus
-                        SchiffLooping(0f, 20f, 5f, 1); //startzeit, endzeit, rate, zyklus                  
+                        Asteroiden(0f, 70f, 2.5f); //startzeit, endzeit, wurfrate
+                        SchiffLinks(10f, 60f, 0.2f);
+                        SchiffRechts(30f, 60f, 0.2f);                       
+                        SchiffAusweich(0f, 60f, 2f, 1); //startzeit, endzeit, rate, zyklus
+                        SchiffLooping(0f, 60f, 2f, 1); //startzeit, endzeit, rate, zyklus  
+                        ZivilistenLinks(0f, 70f, 0.05f);
+                        ZivilistenRechts(25f, 60f, 0.05f);
                         break;
                     }
             }
             istStage = gLogic.stage;
         }
     }
+
     void Asteroiden(float start, float ende, float r)
     {
         GameObject aster = Instantiate(asteroidWerfer, transform.position, Quaternion.identity) as GameObject;
@@ -121,6 +135,27 @@ public class Erstellerscript : MonoBehaviour
         ascript.startzeit = start;
         ascript.wurfZeit = r;
     }
+
+    void ZivilistenLinks(float start, float ende, float r)
+    {
+        Vector3 pos = new Vector3(Vatter.transform.position.x - 4f, Vatter.transform.position.y + 2.5f, Vatter.transform.position.z + 11f);
+        GameObject zivL = Instantiate(HighwayWerferL, pos, Quaternion.identity) as GameObject;
+        HighwayWerferSeite zlscript = zivL.GetComponent<HighwayWerferSeite>();
+        zlscript.endzeit = ende;
+        zlscript.ersterWurf = start;
+        zlscript.wurfrate = r;
+    }
+
+    void ZivilistenRechts(float start, float ende, float r)
+    {
+        Vector3 pos = new Vector3(Vatter.transform.position.x + 4f, Vatter.transform.position.y + 2.5f, Vatter.transform.position.z + 11f);
+        GameObject zivL = Instantiate(HighwayWerferR, pos, Quaternion.identity) as GameObject;
+        HighwayWerferSeite zrscript = zivL.GetComponent<HighwayWerferSeite>();
+        zrscript.endzeit = ende;
+        zrscript.ersterWurf = start;
+        zrscript.wurfrate = r;
+    }
+
     void SchiffLinks(float start, float ende, float r)
     {
         Vector3 posi = new Vector3(Vatter.transform.position.x -4f, Vatter.transform.position.y+2.5f, Vatter.transform.position.z+11f);
