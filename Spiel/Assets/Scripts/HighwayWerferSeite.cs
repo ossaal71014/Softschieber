@@ -33,7 +33,7 @@ public class HighwayWerferSeite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // erste Objekt erzeugen wenn Start-, Todesphase vorbei und Spieler nicht Gameover
+        // erst Objekt erzeugen wenn Start-, Todesphase vorbei und Spieler nicht Gameover
         if (!gLogic.startPhase && !gLogic.todesPhase && !gLogic.gameOver)
         {
             if (!enden) //sind wir am Beenden

@@ -23,11 +23,7 @@ public class HighwayRLmoveScript : MonoBehaviour
     {
         transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);       //Bewege Gegner
 
-        //Ist Gegner nicht zerstört soll er nach bestimmter zeit schießen
-        if (jetzt && !tot)
-        {
-            jetzt = false;
-        }
+      
     }
 
     void Tot()
