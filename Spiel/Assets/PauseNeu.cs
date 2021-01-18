@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Pause : MonoBehaviour
+public class PauseNeu : MonoBehaviour
 {
-    public static bool istPause = false;
+
+    public static bool isGamePaused = false;
 
     [SerializeField] GameObject pauseMenu;
-
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (istPause)
+            if (isGamePaused)
             {
                 ResumeGame();
             }
@@ -28,25 +28,22 @@ public class Pause : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
-        istPause = false;
+        isGamePaused = false;
     }
-    public void PauseGame()
+    void PauseGame()
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
-        istPause = true;
+        isGamePaused = true;
     }
-    public void LoadScene()
+    public void LoadMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
     }
-   
     public void QuitGame()
     {
         Application.Quit();
-
         Debug.Log("Quit");
     }
-
 }
