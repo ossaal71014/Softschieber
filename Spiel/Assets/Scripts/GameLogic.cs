@@ -47,6 +47,8 @@ public class GameLogic : MonoBehaviour
     public bool stageWechsel;
     public int istStage = 0;
 
+    public float time_pro_stage = 75f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -179,7 +181,7 @@ public class GameLogic : MonoBehaviour
     }
     IEnumerator StageZeit()
     {
-        yield return new WaitForSeconds(75f); //Zeit die eine Stage andauert
+        yield return new WaitForSeconds(time_pro_stage); //Zeit die eine Stage andauert
         stageWechsel = true;
         stage++; 
     }

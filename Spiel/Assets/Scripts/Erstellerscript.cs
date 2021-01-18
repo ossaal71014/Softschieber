@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Erstellerscript : MonoBehaviour
+public class Erstellerscript : GameLogic
 {
     private GameObject Vatter;
     private GameLogic gLogic;
@@ -18,7 +18,7 @@ public class Erstellerscript : MonoBehaviour
     public GameObject HighwayWerferR;
     public GameObject HighwayWerferL;
 
-    public int istStage = 0;
+    //public int istStage = 0;
 
     private Vector3 machPosi;       //Position der Items
 
@@ -56,7 +56,14 @@ public class Erstellerscript : MonoBehaviour
             gLogic.stage = 1;       //////////////
         }
 
-
+        float time_pro_stage_1 = time_pro_stage * 0.4f; //30f
+        float time_pro_stage_2 = time_pro_stage * 0.5f; // ~ 40f
+        float time_pro_stage_3 = time_pro_stage * 0.7f; // ~ 55f
+        float time_pro_stage_4 = time_pro_stage * 0.1f; // ~ 10f
+        float time_pro_stage_5 = time_pro_stage * 0.66f;// ~ 50f
+        float time_pro_stage_6 = time_pro_stage * 0.9f; // ~ 70f
+        float time_pro_stage_7 = time_pro_stage * 0.25f;// ~ 20f
+        float time_pro_stage_8 = time_pro_stage * 0.8f; // 60f
         
         if(gLogic.stage != istStage && !gLogic.gameOver && !gLogic.startPhase)
         {
@@ -66,60 +73,99 @@ public class Erstellerscript : MonoBehaviour
                 case 1:
                     //instanzieren und werte übergeben
                     {
-                        Asteroiden(0f, 30f, 2.5f); //startzeit, endzeit, wurfrate
-                        Asteroiden(40f, 55f, 1.5f);
-                        SchiffLinks(10f, 25f, 0.25f);
-                        SchiffRechts(25f, 40f, 0.4f);
-                        SchiffLinks(50f, 67f, 0.5f);
-                        SchiffRechts(52f, 69f, 0.65f);
-                        ZivilistenLinks(0f, 60f, 0.05f);
-                        ZivilistenRechts(25f, 60f, 0.05f);
+                        //Asteroiden(0f, 30f, 2.5f); //startzeit, endzeit, wurfrate
+                        //Asteroiden(40f, 55f, 1.5f);
+                        //SchiffLinks(10f, 25f, 0.25f);
+                        //SchiffRechts(25f, 40f, 0.4f);
+                        //SchiffLinks(50f, 67f, 0.5f);
+                        //SchiffRechts(52f, 69f, 0.65f);
+                        //ZivilistenLinks(0f, 60f, 0.05f);
+                        //ZivilistenRechts(25f, 60f, 0.05f);
+
+                        Asteroiden(0f, time_pro_stage_1, 2.5f); //startzeit, endzeit, wurfrate
+                        Asteroiden(time_pro_stage_1, time_pro_stage_3, 1.5f);
+                        SchiffLinks(time_pro_stage_4, time_pro_stage_1, 0.25f);
+                        SchiffRechts(time_pro_stage_1, time_pro_stage_2, 0.4f);
+                        SchiffLinks(time_pro_stage_5, time_pro_stage_6, 0.5f);
+                        SchiffRechts(time_pro_stage_5, time_pro_stage_6, 0.65f);
+                        ZivilistenLinks(0f, time_pro_stage_3, 0.05f);
+                        ZivilistenRechts(time_pro_stage_1, time_pro_stage_3, 0.05f);
+                        
                         break;
                     }
                     //Level 2
                 case 2:
                     //instanzieren und werte übergeben
                     {
-                        Asteroiden(0f, 20f, 5f); //startzeit, endzeit, wurfrate
-                        Asteroiden(30f, 60f, 0.5f);
-                        SchiffLinks(10f, 30f, 0.25f);
-                        SchiffRechts(30f, 40f, 0.3f);
-                        SchiffLinks(50f, 65f, 0.5f);
-                        SchiffRechts(52f, 67f, 0.65f);
-                        ZivilistenLinks(0f, 60f, 0.25f);
+                        //Asteroiden(0f, 20f, 5f); //startzeit, endzeit, wurfrate
+                        //Asteroiden(30f, 60f, 0.5f);
+                        //SchiffLinks(10f, 30f, 0.25f);
+                        //SchiffRechts(30f, 40f, 0.3f);
+                        //SchiffLinks(50f, 65f, 0.5f);
+                        //SchiffRechts(52f, 67f, 0.65f);
+                        //ZivilistenLinks(0f, 60f, 0.25f);
+                        //ZivilistenRechts(25f, 60f, 0.4f);
+
+                        Asteroiden(0f, time_pro_stage_7, 5f); //startzeit, endzeit, wurfrate
+                        Asteroiden(time_pro_stage_1, time_pro_stage_8, 0.5f);
+                        SchiffLinks(time_pro_stage_4, time_pro_stage_1, 0.25f);
+                        SchiffRechts(time_pro_stage_1, time_pro_stage_2, 0.3f);
+                        SchiffLinks(time_pro_stage_5, time_pro_stage_6, 0.5f);
+                        SchiffRechts(time_pro_stage_5, time_pro_stage_6, 0.65f);
+                        ZivilistenLinks(0f, time_pro_stage_8, 0.25f);
                         ZivilistenRechts(25f, 60f, 0.4f);
                         break;
                     }
                     //Level 3
                 case 3:
                     {
-                        SchiffAusweich(0f, 20f, 0.5f, 1); //startzeit, endzeit, rate, zyklus
-                        SchiffAusweich(27f, 47f, 1.5f, 2);
-                        SchiffAusweich(50f, 70f, 2f, 3);
-                        ZivilistenLinks(0f, 60f, 0.05f);
-                        ZivilistenRechts(25f, 60f, 0.05f);
+                        //SchiffAusweich(0f, 20f, 0.5f, 1); //startzeit, endzeit, rate, zyklus
+                        //SchiffAusweich(27f, 47f, 1.5f, 2);
+                        //SchiffAusweich(50f, 70f, 2f, 3);
+                        //ZivilistenLinks(0f, 60f, 0.05f);
+                        //ZivilistenRechts(25f, 60f, 0.05f);
+
+                        SchiffAusweich(0f, time_pro_stage_7, 0.5f, 1); //startzeit, endzeit, rate, zyklus
+                        SchiffAusweich(time_pro_stage_1, time_pro_stage_5, 1.5f, 2);
+                        SchiffAusweich(time_pro_stage_5, time_pro_stage_6, 2f, 3);
+                        ZivilistenLinks(0f, time_pro_stage_8, 0.05f);
+                        ZivilistenRechts(time_pro_stage_1, time_pro_stage_8, 0.05f);
                         break;
                     }
                     // Level 4
                 case 4:
                     {
-                        SchiffLooping(0f, 20f, 3f, 1); //startzeit, endzeit, rate, zyklus
-                        SchiffLooping(27f, 47f, 1.5f, 2);
-                        SchiffLooping(50f, 70f, 2f, 3);
-                        ZivilistenLinks(0f, 60f, 0.05f);
-                        ZivilistenRechts(25f, 60f, 0.05f);
+                        //SchiffLooping(0f, 20f, 3f, 1); //startzeit, endzeit, rate, zyklus
+                        //SchiffLooping(27f, 47f, 1.5f, 2);
+                        //SchiffLooping(50f, 70f, 2f, 3);
+                        //ZivilistenLinks(0f, 60f, 0.05f);
+                        //ZivilistenRechts(25f, 60f, 0.05f);
+
+                        SchiffLooping(0f, time_pro_stage_7, 3f, 1); //startzeit, endzeit, rate, zyklus
+                        SchiffLooping(time_pro_stage_1, time_pro_stage_5, 1.5f, 2);
+                        SchiffLooping(time_pro_stage_5, time_pro_stage_6, 2f, 3);
+                        ZivilistenLinks(0f, time_pro_stage_8, 0.05f);
+                        ZivilistenRechts(time_pro_stage_1, time_pro_stage_8, 0.05f);
                         break;
                     }
 
                 default:
                     {
-                        Asteroiden(0f, 70f, 2.5f); //startzeit, endzeit, wurfrate
-                        SchiffLinks(10f, 60f, 0.2f);
-                        SchiffRechts(30f, 60f, 0.2f);                       
-                        SchiffAusweich(0f, 60f, 2f, 1); //startzeit, endzeit, rate, zyklus
-                        SchiffLooping(0f, 60f, 2f, 1); //startzeit, endzeit, rate, zyklus  
-                        ZivilistenLinks(0f, 70f, 0.05f);
-                        ZivilistenRechts(25f, 60f, 0.05f);
+                        //Asteroiden(0f, 70f, 2.5f); //startzeit, endzeit, wurfrate
+                        //SchiffLinks(10f, 60f, 0.2f);
+                        //SchiffRechts(30f, 60f, 0.2f);                       
+                        //SchiffAusweich(0f, 60f, 2f, 1); //startzeit, endzeit, rate, zyklus
+                        //SchiffLooping(0f, 60f, 2f, 1); //startzeit, endzeit, rate, zyklus  
+                        //ZivilistenLinks(0f, 70f, 0.05f);
+                        //ZivilistenRechts(25f, 60f, 0.05f);
+
+                        Asteroiden(0f, time_pro_stage_6, 2.5f); //startzeit, endzeit, wurfrate
+                        SchiffLinks(time_pro_stage_4, time_pro_stage_8, 0.2f);
+                        SchiffRechts(time_pro_stage_1, time_pro_stage_8, 0.2f);
+                        SchiffAusweich(0f, time_pro_stage_8, 2f, 1); //startzeit, endzeit, rate, zyklus
+                        SchiffLooping(0f, time_pro_stage_8, 2f, 1); //startzeit, endzeit, rate, zyklus  
+                        ZivilistenLinks(0f, time_pro_stage_6, 0.05f);
+                        ZivilistenRechts(time_pro_stage_1, time_pro_stage_8, 0.05f);
                         break;
                     }
             }
