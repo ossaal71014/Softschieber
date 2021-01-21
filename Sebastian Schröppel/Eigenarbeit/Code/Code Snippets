@@ -52,6 +52,8 @@ void Update()
           float time_pro_stage_7 = time_pro_stage * 0.25f;
           float time_pro_stage_8 = time_pro_stage * 0.8f; 
       ...    
+      
+      --------------------- Anwendung der Variablen - kein eigener Code ---------------------
       case 1:
         {
             Asteroiden(0f, time_pro_stage_1, 2.5f); //startzeit, endzeit, wurfrate
