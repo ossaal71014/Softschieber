@@ -42,6 +42,7 @@ void Update()
 void Update()
   {
       ...
+          // dynamisch an Zeit pro Level angepasste Gegnererzeugung
           float time_pro_stage_1 = time_pro_stage * 0.4f; 
           float time_pro_stage_2 = time_pro_stage * 0.5f; 
           float time_pro_stage_3 = time_pro_stage * 0.7f; 
@@ -51,6 +52,8 @@ void Update()
           float time_pro_stage_7 = time_pro_stage * 0.25f;
           float time_pro_stage_8 = time_pro_stage * 0.8f; 
       ...    
+      
+      --------------------- Anwendung der Variablen - kein eigener Code ---------------------
       case 1:
         {
             Asteroiden(0f, time_pro_stage_1, 2.5f); //startzeit, endzeit, wurfrate
