@@ -11,8 +11,8 @@ public class enemyWerferSeite : MonoBehaviour
     public float wurfrate = 0.25f;
     public float endzeit = 99f;
     private bool beginn;
-    private bool enden; //coroutine fürs enden gestartet?
-    private bool beendet; // aktion beendet?
+    private bool enden;  //Eine Coroutine für das Enden gestartet?
+    private bool beendet;  //Wurde die Aktion beendet?
 
     void Awake()
     {
@@ -34,7 +34,7 @@ public class enemyWerferSeite : MonoBehaviour
     {
         if(!gLogic.startPhase && !gLogic.todesPhase && !gLogic.gameOver)
         {
-            if (!enden) //sind wir am Beenden
+            if (!enden)  //Sind wir am Beenden? 
             {
                 StartCoroutine(Beende(endzeit));
                 enden = true; 
