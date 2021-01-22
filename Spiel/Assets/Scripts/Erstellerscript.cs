@@ -20,14 +20,15 @@ public class Erstellerscript : GameLogic
 
     private Vector3 machPosi;       //Position der Items
 
-    // Start is called before the first frame update
+    // Definiert "Vatter" über den Tag "MainCamera" - der in der Szene dieser zugeorndet ist - als GameObject
+    // gLogic erhält alle Komponenten der MainCamera
     void Awake()
     {
         Vatter = GameObject.FindGameObjectWithTag("MainCamera");
         gLogic = Vatter.GetComponent<GameLogic>();
 
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -54,6 +55,7 @@ public class Erstellerscript : GameLogic
             gLogic.stage = 1;       
         }
 
+        // dynamisch an Zeit pro Level angepasste Gegnererzeugung
         float time_pro_stage_1 = time_pro_stage * 0.4f; 
         float time_pro_stage_2 = time_pro_stage * 0.5f; 
         float time_pro_stage_3 = time_pro_stage * 0.7f; 

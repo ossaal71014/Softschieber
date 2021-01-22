@@ -128,6 +128,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7398413530769143699, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7398413530769143700, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
       propertyPath: macheSpieler
@@ -146,6 +151,11 @@ PrefabInstance:
     - target: {fileID: 7398413530769143700, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
       propertyPath: gameOver
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566405372309403002, guid: f784e05e681874949bc7e3e8d76f0a53,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8566405372309403005, guid: f784e05e681874949bc7e3e8d76f0a53,

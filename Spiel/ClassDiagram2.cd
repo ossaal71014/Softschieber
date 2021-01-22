@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Erstellerscript">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAFAQAAQkAUBQAAAAAIAAAIAIAAAEgAAQAAAABEA=</HashCode>
+      <FileName>Assets\Scripts\Erstellerscript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IASAAIFIiCAKAIgFICAOABAAACYGSCAhAIAAgCgAALA=</HashCode>
+      <FileName>Assets\Scripts\GameLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Asterwerfer">
+    <Position X="4.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQgIIAAACAgABIACEAgIAgACAAIAQAAEAAQQAAAQEE=</HashCode>
+      <FileName>Assets\Scripts\Asterwerfer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="asteroid">
+    <Position X="6.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\asteroid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="killdeath">
+    <Position X="6.75" Y="5.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="killdeath.sendTyp" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\killdeath.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAQAAABAAAAggAgACQAAAAAAAEQQAAAAQEAAAFAIAEA=</HashCode>
+      <FileName>Assets\Scripts\killdeath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

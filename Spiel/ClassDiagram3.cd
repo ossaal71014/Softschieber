@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="asteroid" Collapsed="true">
+    <Position X="6" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\asteroid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Asterwerfer" Collapsed="true">
+    <Position X="4" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQgIIAAACAgABIACEAgIAgACAAIAQAAEAAQQAAAQEE=</HashCode>
+      <FileName>Assets\Scripts\Asterwerfer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Erstellerscript" Collapsed="true">
+    <Position X="2.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAFAQAAQkAUBQAAAAAIAAAIAIAAAEgAAQAAAABEA=</HashCode>
+      <FileName>Assets\Scripts\Erstellerscript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IASAAIFIiCAKAIgFICAOABAAACYGSCAhAIAAgCgAALA=</HashCode>
+      <FileName>Assets\Scripts\GameLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

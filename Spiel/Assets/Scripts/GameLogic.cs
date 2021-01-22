@@ -179,6 +179,7 @@ public class GameLogic : MonoBehaviour
             }
         }
     }
+
     IEnumerator StageZeit()
     {
         yield return new WaitForSeconds(time_pro_stage); //Zeit die eine Stage andauert

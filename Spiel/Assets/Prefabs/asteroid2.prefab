@@ -153,6 +153,7 @@ MonoBehaviour:
   leben: 3
   trefferPunkte: 1
   killPunkte: 1
+  typ: 0
 --- !u!82 &398969675558141573
 AudioSource:
   m_ObjectHideFlags: 0
