@@ -5,6 +5,7 @@ public class itemScript : MonoBehaviour
 {
     public enum itemTyp {shieldAdd, shipAdd, weapon1}; 
     public itemTyp typ = itemTyp.shieldAdd;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +17,10 @@ public class itemScript : MonoBehaviour
     {
         
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
+
         if (other.CompareTag("killzone"))
         {
             Destroy(gameObject);
@@ -30,7 +33,8 @@ public class itemScript : MonoBehaviour
             Destroy(gameObject, 2f);
             GetComponent<AudioSource>().Play();
 
-            //Schiff wird benachrichtigt das Schild, Schiff oder Waffe erhalten wurde
+            //Schiff wird benachrichtigt das Schild, Schiff oder Waffe erhalten wurde :
+
             if (typ == itemTyp.shieldAdd)
             {
                 other.SendMessage("ShieldAdd", SendMessageOptions.DontRequireReceiver);

@@ -51,6 +51,7 @@ public class enemyWerferSeite : MonoBehaviour
                 StartCoroutine(Warte(1 / wurfrate));
             }
         }
+
         if (gLogic.startPhase)
         {
             StopAllCoroutines();
@@ -60,6 +61,7 @@ public class enemyWerferSeite : MonoBehaviour
             enden = false;
         }
     }
+
     void LateUpdate()
     {
         if(gLogic.gameOver ||(gLogic.stage !=gLogic.istStage && !gLogic.startPhase))
@@ -67,7 +69,7 @@ public class enemyWerferSeite : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    IEnumerator Beende(float et)    //wann ist es vorbei?
+    IEnumerator Beende(float et)  //wann ist es vorbei?
     {
         yield return new WaitForSeconds(et);
         beendet = true;
