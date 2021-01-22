@@ -15,13 +15,13 @@ public class enemyRLmoveScript : MonoBehaviour
 
     void Start()
     {
-        //: Wenn ein "enemy" von rechts kommt, dann fliege ebenfalls nach links :
+        // Wenn ein "enemy" von rechts kommt, dann fliege ebenfalls nach links :
 
         if (!vonLinks)
         {
             speed *= -1;
         }
-        StartCoroutine(WarteSchuss(ersterSchuss));  //Fange erst nach ablauf der Zeit, angegeben von "ersterSchuss", an zu schießen
+        StartCoroutine(WarteSchuss(ersterSchuss));  // Fange erst nach ablauf der Zeit, angegeben von "ersterSchuss", an zu schießen
     }
 
     // Update is called once per frame
