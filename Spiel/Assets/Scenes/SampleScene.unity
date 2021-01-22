@@ -485,6 +485,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ersteller
       objectReference: {fileID: 0}
+    - target: {fileID: 5112414149179481064, guid: 62e801e26811fd14c94ca116090a8a32,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5112414149179481070, guid: 62e801e26811fd14c94ca116090a8a32,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -610,12 +615,12 @@ PrefabInstance:
     - target: {fileID: 8566405372635038421, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.646
+      value: -3.189
       objectReference: {fileID: 0}
     - target: {fileID: 8566405372635038421, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.343631
+      value: 7.4297485
       objectReference: {fileID: 0}
     - target: {fileID: 8566405372698044534, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
@@ -745,27 +750,27 @@ PrefabInstance:
     - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
       propertyPath: extraShip
-      value: 1000
+      value: 2500
       objectReference: {fileID: 0}
     - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
       propertyPath: asterForShield
-      value: 20
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
       propertyPath: ship1ForShield
-      value: 20
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
       propertyPath: ship2ForShield
-      value: 20
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
       propertyPath: ship3ForShield
-      value: 20
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8566405372825681267, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
@@ -820,12 +825,12 @@ PrefabInstance:
     - target: {fileID: 8566405372935590385, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.4
+      value: 10.975
       objectReference: {fileID: 0}
     - target: {fileID: 8566405372935590385, guid: f784e05e681874949bc7e3e8d76f0a53,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.408748
+      value: 7.5587544
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f784e05e681874949bc7e3e8d76f0a53, type: 3}
