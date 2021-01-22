@@ -6,8 +6,8 @@ public class killdeath : MonoBehaviour
     public AudioSource Hitaudio;
     public AudioSource Killaudio;
     public GameObject explo;
-    public int damage = 1;                              //Variable für Schaden, der dem Schiff zugefügt werden soll
-    public int leben = 3;                               //Gegner sollen Leben erhalten
+    public int damage = 1;  //Variable für Schaden, der dem Schiff zugefügt werden soll
+    public int leben = 3;  //Gegner sollen Leben erhalten
     public int trefferPunkte = 1;
     public int killPunkte = 1;
     private GUIScript gui;
@@ -29,15 +29,20 @@ public class killdeath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(gLogic.todesPhase && !vatterWeg)
         {
             vatterWeg = true;
             gameObject.SendMessage("Vatterlos", SendMessageOptions.DontRequireReceiver);
         }
     }
+
     void Sende()
     {
         gLogic.hitPosition = transform.position;
+
+        // : Unterscheide zwischen den Gegnertypen. :
+
         switch (typ)
         {
             case sendTyp.asteroid:
@@ -66,9 +71,11 @@ public class killdeath : MonoBehaviour
         }
     }
 
-    // wenn in Trigger eingedrungen wird -> auswertung
+    // : Wenn in den Trigger eingedrungen wird erfolgt eine Auswertung. :
+
     void OnTriggerEnter2D(Collider2D other)
     {
+
         if (other.CompareTag("killzone"))
         {
             Destroy(gameObject);
@@ -76,19 +83,22 @@ public class killdeath : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {          
-            Destroy(gameObject, 2f);
-            // wenn gameObjekt auf Schiff trifft -> Explosion auslösen
-            Instantiate(explo, transform.position, Quaternion.identity);
-            //Schiff wird benachrichtigt Schaden zu erhalten egal, ob es einen Empfänger hat oder nicht
-            other.SendMessage("Treffer", damage, SendMessageOptions.DontRequireReceiver);
-            gui.score += killPunkte;
-            Killaudio.Play();
+            Destroy(gameObject, 2f);  //Zerstöre das Objekt, das mit dem Spieler kollidiert ist.
+            
+            Instantiate(explo, transform.position, Quaternion.identity);  //Wenn der Gegner auf Schiff trifft Explosion auslösen
+
+            other.SendMessage("Treffer", damage, SendMessageOptions.DontRequireReceiver);  //Das Schiff wird benachrichtigt den Schaden zu erhalten.
+
+            gui.score += killPunkte;  //Addiere die Killpunkte (Punkte für zerstörte Gegner) auf den Score des Spielers.
+
+            Killaudio.Play();  //Spiele einen Ton ab bei der Zerstörung des Spielers.
+
             Sende();
         }
     }
 
     /// <summary>
-    /// Gegner erhalten Schaden und werden zerstört
+    /// Die Gegner erhalten Schaden und werden zerstört
     /// </summary>
     /// <param name="schaden"></param>
     void Treffer(int schaden)
