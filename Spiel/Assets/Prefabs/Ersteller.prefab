@@ -43,6 +43,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f4af04df4e59b54eb879b2ad96a6d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startMusik: {fileID: 0}
+  totMusik: {fileID: 0}
+  allstars: []
+  stage: 1
+  todeszeit: 5
+  macheSpieler: 0
+  spielStart: 0
+  startPhase: 0
+  todesPhase: 0
+  gameOver: 1
+  anzeigeZeit: 2
+  stageAnzeige: 1
+  anzeigeIstAn: 0
+  score: 0
+  calcScore: 0
+  asteroidHit: 0
+  ship1Hit: 0
+  ship2Hit: 0
+  ship3Hit: 0
+  hitPosition: {x: 0, y: 0, z: 0}
+  asterTotal: 0
+  Ship1Total: 0
+  Ship2Total: 0
+  Ship3Total: 0
+  extraShip: 1000
+  asterForShield: 10
+  ship1ForShield: 10
+  ship2ForShield: 10
+  ship3ForShield: 10
+  makeShield: 0
+  makeShip: 0
+  stageWechsel: 0
+  istStage: 0
+  time_pro_stage: 75
   Schiffsprefab: {fileID: 1556777768341676672, guid: f5ca9baeb1c79ef45bc51c4b9fb1153e,
     type: 3}
   ShieldAddPrefab: {fileID: 8813618804497346852, guid: 622aded38e960624e8427bf9462a3416,
@@ -63,4 +97,3 @@ MonoBehaviour:
     type: 3}
   HighwayWerferL: {fileID: 1314222306053410758, guid: 780ab3c27fd772540b5d5547c954edfc,
     type: 3}
-  istStage: 0

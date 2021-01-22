@@ -11,7 +11,8 @@ public class HighwayRLmoveScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Wenn enemy von rechts kommt, dann fliege auch nach links
+        //Wenn enemy von rechts kommt, dann fliege auch nach links: 
+
         if (!vonLinks)
         {
             speed *= -1;
@@ -21,13 +22,9 @@ public class HighwayRLmoveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);       //Bewege Gegner
+        transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);  // Bewege Gegner
 
-        //Ist Gegner nicht zerstört soll er nach bestimmter zeit schießen
-        if (jetzt && !tot)
-        {
-            jetzt = false;
-        }
+      
     }
 
     void Tot()

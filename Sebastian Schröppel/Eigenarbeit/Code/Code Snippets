@@ -1,0 +1,70 @@
+--- Innerhalb des Klasse "Erstellerscript.cs" in Funktion "Update" aktuelles Level nach gameover auf 1 gesetzt:
+
+void Update()
+  {
+      ...
+      if(gLogic.gameOver)
+      {
+          gLogic.stage = 1;
+      }
+      ...
+      
+  }
+
+
+--- Innerhalb des Klasse "Erstellerscript.cs" in Funktion "Update" in switch-Anweisung default-case ergänzt (ermöglicht beliebig viele Stages):
+
+void Update()
+  {
+      ...
+      switch (gLogic.stage)
+      {
+          ...
+          default:
+          {
+              Asteroiden(0f, 70f, 2.5f); //startzeit, endzeit, wurfrate
+              SchiffLinks(10f, 60f, 0.2f);
+              SchiffRechts(30f, 60f, 0.2f);                       
+              SchiffAusweich(0f, 60f, 2f, 1); //startzeit, endzeit, rate, zyklus
+              SchiffLooping(0f, 60f, 2f, 1); //startzeit, endzeit, rate, zyklus  
+              ZivilistenLinks(0f, 70f, 0.05f);
+              ZivilistenRechts(25f, 60f, 0.05f);
+              break;
+          }
+      }
+      ...     
+  }
+  
+  
+  --- Klasse "Erstellerscript.cs" erbt von "GameLogic.cs", da hier time_pro_stage definiert wird
+  --- Innerhalb des Klasse "Erstellerscript.cs" in Funktion "Update" Variablen erstellt, die die "Gegner-Werfer" dynamisch an die Zeit pro Stage angepasst:
+
+void Update()
+  {
+      ...
+          // dynamisch an Zeit pro Level angepasste Gegnererzeugung
+          float time_pro_stage_1 = time_pro_stage * 0.4f; 
+          float time_pro_stage_2 = time_pro_stage * 0.5f; 
+          float time_pro_stage_3 = time_pro_stage * 0.7f; 
+          float time_pro_stage_4 = time_pro_stage * 0.1f; 
+          float time_pro_stage_5 = time_pro_stage * 0.66f;
+          float time_pro_stage_6 = time_pro_stage * 0.9f; 
+          float time_pro_stage_7 = time_pro_stage * 0.25f;
+          float time_pro_stage_8 = time_pro_stage * 0.8f; 
+      ...    
+      
+      --------------------- Anwendung der Variablen - kein eigener Code ---------------------
+      case 1:
+        {
+            Asteroiden(0f, time_pro_stage_1, 2.5f); //startzeit, endzeit, wurfrate
+            Asteroiden(time_pro_stage_1, time_pro_stage_3, 1.5f);
+            SchiffLinks(time_pro_stage_4, time_pro_stage_1, 0.25f);
+            SchiffRechts(time_pro_stage_1, time_pro_stage_2, 0.4f);
+            SchiffLinks(time_pro_stage_5, time_pro_stage_6, 0.5f);
+            SchiffRechts(time_pro_stage_5, time_pro_stage_6, 0.65f);
+            ZivilistenLinks(0f, time_pro_stage_3, 0.05f);
+            ZivilistenRechts(time_pro_stage_1, time_pro_stage_3, 0.05f);                        
+            break;
+      ...
+  }
+  

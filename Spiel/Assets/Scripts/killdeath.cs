@@ -12,8 +12,8 @@ public class killdeath : MonoBehaviour
     public int killPunkte = 1;
     private GUIScript gui;
     private GameLogic gLogic;
-    public enum sendTyp { asteroid, shiphorizontal, shipvertical, shipavoid};
-    public sendTyp typ = sendTyp.asteroid;
+    public enum SendTyp { asteroid, shiphorizontal, shipvertical, shipavoid};
+    public SendTyp typ = SendTyp.asteroid;
     private bool vatterWeg = false;
 
 
@@ -22,8 +22,6 @@ public class killdeath : MonoBehaviour
     {
         gui = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GUIScript>();
         gLogic = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameLogic>();
-        //renderer = renderer.GetComponent<Renderer>();
-        //collider2D = collider2D.GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -45,24 +43,24 @@ public class killdeath : MonoBehaviour
 
         switch (typ)
         {
-            case sendTyp.asteroid:
+            case SendTyp.asteroid:
                 {
                     gLogic.asteroidHit++;
                     break;
                 }
-            case sendTyp.shiphorizontal:
+            case SendTyp.shiphorizontal:
                 {
                     gLogic.ship1Hit++;
                     gameObject.SendMessage("Tot", SendMessageOptions.DontRequireReceiver);
                     break;
                 }
-            case sendTyp.shipvertical:
+            case SendTyp.shipvertical:
                 {
                     gLogic.ship2Hit++;
                     gameObject.SendMessage("Tot", SendMessageOptions.DontRequireReceiver);
                     break;
                 }
-            case sendTyp.shipavoid:
+            case SendTyp.shipavoid:
                 {
                     gLogic.ship3Hit++;
                     gameObject.SendMessage("Tot", SendMessageOptions.DontRequireReceiver);

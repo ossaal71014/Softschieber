@@ -6,8 +6,8 @@ public class enemyAusweichScript : MonoBehaviour
 {
     public bool nachlinks;
     public bool nachrechts;
-    public float maxAusweich = 2;   //max Ausweichgeschwindigkeit
-    public float istAusweich = 0;   //momentane Ausweichgeschwindigkeit
+    public float maxAusweich = 2;  // max Ausweichgeschwindigkeit
+    public float istAusweich = 0;  // momentane Ausweichgeschwindigkeit
     private Animator anim;
     public LayerMask layer;
 
@@ -21,7 +21,10 @@ public class enemyAusweichScript : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
-    // Start is called before the first frame update
+
+    /// <summary>
+    /// Lässt ersten Schuss des Gegners erst nach Zeit "ersterSchuss + varia" zu
+    /// </summary>
     void Start()
     {
         float varia = Random.Range(0f, 0.5f);
@@ -34,6 +37,9 @@ public class enemyAusweichScript : MonoBehaviour
         if(jetzt && !tot)
         {
             jetzt = false; 
+
+            // Wenn Gegner horizontal innerhalb von -3..3 ist, schießt er:
+
             if(transform.position.x > -3f && transform.position.x < 3f)
             {
                 Instantiate(Schuss, transform.position, Quaternion.identity);
@@ -41,6 +47,8 @@ public class enemyAusweichScript : MonoBehaviour
                 StartCoroutine(WarteSchuss(1/schussrate + varia));
             }
         }
+
+        // Leitet Ausweichmanöver ein
         transform.Translate(-Vector2.up * Time.deltaTime);
         if (nachrechts)
         {
@@ -50,7 +58,7 @@ public class enemyAusweichScript : MonoBehaviour
         {
             transform.Translate(Vector3.left * Time.deltaTime * istAusweich);
         }
-        if (istAusweich<maxAusweich && (nachlinks || nachrechts))
+        if (istAusweich < maxAusweich && (nachlinks || nachrechts))
         {
             istAusweich += (2f * Time.deltaTime);
         }
@@ -59,7 +67,6 @@ public class enemyAusweichScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Vector 2dwn = transform.TransformDirection(Vector3.down);
         Vector2 size = new Vector2(0.5f, 1f);
         Vector2 box1 = transform.position;
         Vector2 box2 = box1;

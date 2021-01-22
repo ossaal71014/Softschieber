@@ -29,11 +29,16 @@ public class Asterwerfer : MonoBehaviour
 
 
     // Start is called before the first frame update
+    /// <summary>
+    /// Methode legt "Vatter" von Typ "MainCamera" aus Szene fest
+    /// und erlaubt über "gLogic" den Zugriff auf Inhalte von GameLogic.cs
+    /// </summary>
     void Awake()
     {
         Vatter = GameObject.FindGameObjectWithTag("MainCamera");
         gLogic = Vatter.GetComponent<GameLogic>();
     }
+
     void Start()
     {
         transform.parent = Vatter.transform;
@@ -107,29 +112,45 @@ public class Asterwerfer : MonoBehaviour
         }
         
     }
+
+    /// <summary>
+    /// Wenn Stage geschafft oder der Spieler gameover ist, wird Asteroidenwerfer zerstört
+    /// </summary>
     void LateUpdate()
     {
-        if(gLogic.gameOver || (gLogic.stage != gLogic.istStage && !gLogic.startPhase))  //stage ist vorbei oder gameover
+        if(gLogic.gameOver || (gLogic.stage != gLogic.istStage && !gLogic.startPhase)) 
         {
-            Destroy(gameObject);    //wir zerstören uns
+            Destroy(gameObject);  // wir zerstören uns
         }
     }
-    IEnumerator Starte(float st)    //wann geht es los?
+    /// <summary>
+    /// Nach "st" Sekunden beginnt der Asteroidenwerfer mit dem Erzeugen von Asteroiden
+    /// </summary>
+    /// <param name="st"></param>
+    IEnumerator Starte(float st)
     {
         yield return new WaitForSeconds(st);
         gestartet = true; 
     }
-    IEnumerator Beende(float et)    //wann ist es vorbei?
+
+    /// <summary>
+    /// Nach "et" Sekunden beendet der Asteroidenwerfer das Erzeugen von Asteroiden
+    /// </summary>
+    /// <param name="et"></param>
+    IEnumerator Beende(float et)   
     {
         yield return new WaitForSeconds(et);
         beendet = true;
     }
 
+    /// <summary>
+    /// Nach jeweils "z" Sekunden wird Asteroid erzeugt
+    /// </summary>
+    /// <param name="go"></param>
+    /// <param name="z"></param>
     IEnumerator Raus(GameObject go, float z)
         {
-            // erst wenn z Sekunden abgelaufen
             yield return (new WaitForSeconds(z));
-            // wird das abgearbeitet
             Instantiate(go, transform.position, Quaternion.identity);
             jetzt = false;
         }

@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
     public float cameraSpeed = 1f;
-    private float oldSpeed;
-    private float newSpeed;
+    private float oldSpeed;  // Kamerageschwindigkeit im "Normalbetrieb"
+    private float newSpeed;  // Kamerageschwindigkeit in Todesphase
     private GameLogic gLogic;
 
     // Start is called before the first frame update
@@ -27,7 +27,10 @@ public class CameraMove : MonoBehaviour
             cameraSpeed = oldSpeed;
         }
     }
-    // LateUpdate -> Kamera bewegt sich erst nachdem alle anderen "Geupdatet" haben
+
+    /// <summary>
+    /// Kamera bewegt sich erst nachdem alle anderen "Geupdatet" haben
+    /// </summary>
     void LateUpdate()
     {
         transform.Translate(Vector3.up * Time.deltaTime * cameraSpeed, Space.World);

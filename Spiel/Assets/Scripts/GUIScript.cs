@@ -52,8 +52,10 @@ public class GUIScript : MonoBehaviour
         namenseingabe = false;
         wartemal = false;
         goAnzeige = false;
-        
-        if(!PlayerPrefs.HasKey("1Name"))                // Highscore-Liste 
+
+        // Highscore-Liste:
+
+        if (!PlayerPrefs.HasKey("1Name"))                 
         {
             PlayerPrefs.SetString("1Name", "fritz");
             PlayerPrefs.SetInt("1Score", 1000);
@@ -77,6 +79,9 @@ public class GUIScript : MonoBehaviour
             PlayerPrefs.SetInt("10Score", 10);
             PlayerPrefs.Save();
         }
+
+        // Schleife um Tabelle mit obigen Werten zu füllen:
+
         for(int i=1; i<11; i++)
         {
             hiName[i] = PlayerPrefs.GetString(i+"Name");
@@ -94,7 +99,7 @@ public class GUIScript : MonoBehaviour
             neustarthinweis = true;
             score = 0;
             ships = 3;
-            hiPunkte[0] = 20;
+            hiPunkte[0] = 20;  
         }
         gLogic.score = score;
         homi = Screen.width / 2;
@@ -143,34 +148,44 @@ public class GUIScript : MonoBehaviour
         {
             if (wartemal) 
             {
-                StartCoroutine(Warte());
+                StartCoroutine(Warte());  // Bietet Grundlage für Tabelleneintrag
                 goAnzeige = true;
                 wartemal = false;
             }
 
-            if (goAnzeige) // anzeige von gameover
+            // Anzeige bei gameover:
+
+            if (goAnzeige) 
             {
                 GUI.skin = skin2;
                 GUI.Label(new Rect(homi - 120, vemi - 50, 300, 100), "game over");
             }
 
-            if (namenseingabe)                                                                          // wenn unter den besten x, dann namen eingeben
+            // wenn unter den besten 10, dann namen eingeben:
+
+            if (namenseingabe)                                                                          
             {
                 GUI.skin = skin2;
                 GUI.Label(new Rect(homi - 200, vemi - 190, 400, 220), "you have reached\na top 10\nhighscore !\n\nplease\nenter name");
                 GUI.SetNextControlName("Eingabe");
-                meinName = GUI.TextField(new Rect(homi - 100, vemi + 50, 200, 50), meinName, 10);       // max. 10 zeichen pro name
-                meinName = meinName.ToLower();                                                          // nur kleinbuchstaben
+                meinName = GUI.TextField(new Rect(homi - 100, vemi + 50, 200, 50), meinName, 10);  // Max. 10 zeichen pro Name
+                meinName = meinName.ToLower();  // Nur Kleinbuchstaben
 
                 GUI.SetNextControlName("Button");
                 if(GUI.Button(new Rect (homi -50, vemi + 120, 100, 50), "ok") || (Event.current.type == EventType.KeyUp && Event.current.keyCode == KeyCode.Return))
                 {
                     namenseingabe = false;
                     int zaehler = 10;
-                    while (zaehler > 0 && score > hiPunkte[zaehler])                                    // vgl. von letzten Highscoreplatz ausgehend mit aktuellen punkten
+
+                    // Vgl. von letzten Highscoreplatz ausgehend mit aktuellen punkten:
+
+                    while (zaehler > 0 && score > hiPunkte[zaehler])                                    
                     {
                         zaehler--;
                     }
+
+                    // Name und Punkte werden über "zaehler" an passenden Index geschrieben:
+
                     for (int s = 10; s < zaehler+1; s--)
                     {
                         hiPunkte[s] = hiPunkte[s - 1];
@@ -192,23 +207,30 @@ public class GUIScript : MonoBehaviour
 
             if (!goAnzeige && !namenseingabe) 
             {
-                if(neustarthinweis)             // starte den hinweis neu
+                // Starte den hinweis neu:
+
+                if (neustarthinweis)             
                 {
                     neustarthinweis = false;
                     StartCoroutine(HinweisTimer());
                 }
                 if(hinweis)
                 {
-                  //  GUI.skin = tab1aSkin;
                     GUI.Label(new Rect(homi - 105, vemi * 2 - 50, 300, 30), "'strg' -> starten");
                 }
+
+                // Erneuter Spielstart nach gameover bzw. Tabelleneintrag:
+
                 if(Input.GetButton("Fire1"))
                 {
                     gLogic.gameOver = false;
                     gLogic.spielStart = true;
                     wartemal = true;
                 }
-                if(neustarthigh)            // starte highscore counter neu
+
+                // Starte highscore counter neu:
+
+                if (neustarthigh)            
                 {
                     neustarthigh = false;
                     StartCoroutine(HighscoreTimer());
@@ -218,8 +240,8 @@ public class GUIScript : MonoBehaviour
                     GUI.BeginGroup(new Rect (homi - 185, vemi - 250, 370, 450));
                     GUI.skin = skin2;
                     GUI.Label(new Rect(30, 80, 300, 50), "highscores");
-                    bool zeileGerade = false;           // um Zeilen abwechselnd hell dunkel zu machen      
-                    int yy = 130;                       // Startwert erster Tabelle
+                    bool zeileGerade = false;  // um Zeilen abwechselnd hell dunkel zu machen      
+                    int yy = 130;  // Startwert erster Tabelle
                     for(int i=1; i<11; i++)
                     {
                         if (!zeileGerade)
@@ -246,6 +268,7 @@ public class GUIScript : MonoBehaviour
                         }
                         GUI.EndGroup();
                 }
+
                 else
                 {
                     GUI.skin = skin2;
@@ -272,7 +295,10 @@ public class GUIScript : MonoBehaviour
     {
         yield return new WaitForSeconds(7f);
         goAnzeige = false;
-        if(score > hiPunkte[10])
+
+        // Wenn man besser ist als der aktuell letzte auf der Tabelle:
+
+        if (score > hiPunkte[10])
         {
             namenseingabe = true;
             meinName = "";
