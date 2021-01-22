@@ -11,9 +11,11 @@ public class asteroid : MonoBehaviour
         anim = GetComponent<Animator>();
     }
     // Start is called before the first frame update
+    /// <summary>
+    ///Animationsgeschwindigkeit, Größe, Anpassung an neue Größe
+    /// </summary>
     void Start()
     {
-        // Animationsgeschwindigkeit, Größe, Anpassung an neue Größe
         anim.speed = Random.Range(0.5f, 1.5f);
         float groesse = Random.Range(1.0f, 1.3f);
         transform.localScale = new Vector3(groesse, groesse, groesse);
