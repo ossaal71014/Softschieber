@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class enemyAusweichScript : MonoBehaviour
 {
-    public bool nachlinks;
-    public bool nachrechts;
+    public bool nachlinks;  // nach links ausweichen
+    public bool nachrechts;  // nach rechts ausweichen
     public float maxAusweich = 2;  // max Ausweichgeschwindigkeit
     public float istAusweich = 0;  // momentane Ausweichgeschwindigkeit
     private Animator anim;
     public LayerMask layer;
 
-    public float schussrate = 0.2f;
-    public float ersterSchuss = 1.5f;
+    public float schussrate = 0.2f;  // Schussrate rotes Schiff
+    public float ersterSchuss = 1.5f;  // ester Schuss nach 1.5 Sekunden
     public GameObject Schuss;
-    private bool jetzt;
-    private bool tot;
+    private bool jetzt;  // Variable für aktuellen Stand
+    private bool tot;  // Variable wenn tod
 
+    /// <summary>
+    /// Ruft den Start für des grünen Gegners auf
+    /// </summary>
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -31,7 +34,9 @@ public class enemyAusweichScript : MonoBehaviour
         StartCoroutine(WarteSchuss(ersterSchuss + varia));
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Startet das Gegnerschiff mit der festgelegten Schussrate und der Eigenschaft dem Player auszuweichen
+    /// </summary>
     void Update()
     {
         if(jetzt && !tot)
@@ -48,8 +53,9 @@ public class enemyAusweichScript : MonoBehaviour
             }
         }
 
-        // Leitet Ausweichmanöver ein
-        transform.Translate(-Vector2.up * Time.deltaTime);
+        //ausweichen in die gegebene Richtung mit einer steigenden Geschwindigkeit, um eine fließende Bewegung darzustellen_
+
+        transform.Translate(-Vector2.up * Time.deltaTime);      
         if (nachrechts)
         {
             transform.Translate(Vector3.right * Time.deltaTime * istAusweich);
@@ -58,13 +64,15 @@ public class enemyAusweichScript : MonoBehaviour
         {
             transform.Translate(Vector3.left * Time.deltaTime * istAusweich);
         }
-        if (istAusweich < maxAusweich && (nachlinks || nachrechts))
+        if (istAusweich<maxAusweich && (nachlinks || nachrechts))
         {
             istAusweich += (2f * Time.deltaTime);
         }
 
     }
-
+    /// <summary>
+    /// Bereich festlegen bei welchem Abstand (Box) zum Player der Gegner ausweichen sollte.
+    /// </summary>
     void FixedUpdate()
     {
         Vector2 size = new Vector2(0.5f, 1f);
@@ -94,12 +102,17 @@ public class enemyAusweichScript : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// Zeit zwischen den Schüssen
+    /// </summary>
     IEnumerator WarteSchuss(float z)
     {
         yield return new WaitForSeconds(z);
         jetzt = true;
     }
+    /// <summary>
+    /// Tod-Methode
+    /// </summary>
     void Tot()
      {
         tot = true;

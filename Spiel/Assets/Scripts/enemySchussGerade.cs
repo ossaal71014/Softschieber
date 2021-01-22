@@ -3,17 +3,22 @@ using UnityEngine;
 
 public class enemySchussGerade : MonoBehaviour
 {
-    public float speed = 2f;
-    public int schaden = 1;
-    private Vector3 richtung;
+    public float speed = 2f;  // Schussgeschwindigkeit
+    public int schaden = 1;  // Schaden
+    private Vector3 richtung;  // Richutungsvektor
     private GameObject player;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Methode zur Ermittllung des Players und Festlegung der Schussrichtung
+    /// </summary>
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");        //Spüre Position des Spielers auf
+        //Spüre Position des Spielers auf:
 
-        //Falls Spieler nicht gefunden wurde soll der Schuss sich gerade nach unten bewegen
+        player = GameObject.FindGameObjectWithTag("Player");       
+
+        //Falls Spieler nicht gefunden wurde soll der Schuss sich gerade nach unten bewegen:
+
         if (player == null)
         {
             richtung = -Vector3.up;
@@ -25,25 +30,29 @@ public class enemySchussGerade : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Methode zur Ausführung des Flugschusses
+    /// </summary>
     void Update()
     {
-        transform.Translate(richtung * Time.deltaTime * speed);                                 //Schuss fliegt
+        transform.Translate(richtung * Time.deltaTime * speed);                                
     }
 
     /// <summary>
     /// Methode zur Kollisionsermittlung und übergeben von Schaden an Spieler
     /// </summary>
-    /// <param name="other"></param>
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Ist getroffenens Objekt Spieler?
+        //Abfrage ob Spieler getroffen ist:
+
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject);                                                                //Zerstöre Projektil
             other.SendMessage("Treffer", schaden, SendMessageOptions.DontRequireReceiver);      //Übermittle Schaden an Spieler
         }
-        //Bewegt sich Projektil ausßerhalb der Spielzone?
+
+        //Wenn das Projektil außerhalb des Spielfelds ist, dann wird das Objekt (Projektil) zerstört:
+
         if (other.CompareTag("killzone"))
         {
             Destroy(gameObject);
