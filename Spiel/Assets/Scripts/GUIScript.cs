@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class GUIScript : MonoBehaviour
 {
-    //Graphiken für das Banner 
+    // Graphiken für das Banner: 
+
     public GUISkin skin1;
     public GUISkin skin2;
     public GUISkin skin3;
@@ -16,11 +17,11 @@ public class GUIScript : MonoBehaviour
     public Texture2D shipTex;
     public Texture2D backgroundTex;
 
-    private float homi;             //Position horizontal mittig
-    private float vemi;
-    public int score = 0;           //Punkteanzahl
-    public int shields = 0;         //Schildanzahl
-    public int ships = 0;           //Leben
+    private float homi;  // Position horizontal mittig
+    private float vemi;  // Position vertikal mittig
+    public int score = 0;  // Punkteanzahl
+    public int shields = 0;  // Schildanzahl
+    public int ships = 0;  // Leben
 
     private string praefix = "";    //Darstellung Score mit Nullen davorgestellt z.B. 00018
 
@@ -40,13 +41,18 @@ public class GUIScript : MonoBehaviour
     private int[] hiPunkte = new int[11];       // array für 10 punkte des highscores
     public string meinName = "";
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Bei Spielbeginn anzeigen
+    /// </summary>
     void Awake()
     {
         gLogic = gameObject.GetComponent<GameLogic>();
 
     }
 
+    /// <summary>
+    /// Methode Highscore Tabelle anzuzeigen
+    /// </summary>
     private void Start()
     {
         namenseingabe = false;
@@ -55,7 +61,11 @@ public class GUIScript : MonoBehaviour
 
         // Highscore-Liste:
 
+<<<<<<< HEAD
         if (!PlayerPrefs.HasKey("1Name"))                 
+=======
+        if (!PlayerPrefs.HasKey("1Name"))                
+>>>>>>> Ilona-Aravidou
         {
             PlayerPrefs.SetString("1Name", "fritz");
             PlayerPrefs.SetInt("1Score", 1000);
@@ -89,7 +99,9 @@ public class GUIScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Methode um die Punkte aufzuzählen
+    /// </summary>
     void Update()
     {
         if (gLogic.spielStart)
@@ -106,7 +118,8 @@ public class GUIScript : MonoBehaviour
         vemi = Screen.height / 2;
         praefix = "00000";
 
-        // Nullen werden davorgestellt wenn Wert 1-stellig, 2-stellig usw. ist 
+        // Nullen werden davorgestellt wenn Wert 1-stellig, 2-stellig usw. ist:
+
         if (score > 9)
         {
             praefix = "0000";
@@ -132,8 +145,11 @@ public class GUIScript : MonoBehaviour
     {
         gLogic.spielStart = false;
     }
-    //Einzeichnen der Grafik
-    //(newRect(x,y,w,h), Texture2D) => zeichnet Textur "Texture2D" an Position x,y mit Breite w und Höhe h
+
+    /// <summary>
+    /// Einzeichnen der Grafik
+    /// (newRect(x,y,w,h), Texture2D) => zeichnet Textur "Texture2D" an Position x,y mit Breite w und Höhe h
+    /// </summary>
     void OnGUI()
     {
         GUI.skin = skin1;
