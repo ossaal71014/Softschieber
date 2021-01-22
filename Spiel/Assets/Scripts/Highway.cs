@@ -5,11 +5,11 @@ public class Highway : MonoBehaviour
 {
     public bool vonLinks;
     public float speed = 2f;
-    public bool jetzt;          //
+    public bool jetzt;       
     public bool tot;
     
 
-    // Start is called before the first frame update
+    // Wenn Gegner von links nach rechts fliegen soll, Bewegung in andere Richtung 
     void Start()
     {
         if (!vonLinks)

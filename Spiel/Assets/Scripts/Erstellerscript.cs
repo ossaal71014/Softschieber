@@ -18,10 +18,10 @@ public class Erstellerscript : GameLogic
     public GameObject HighwayWerferR;
     public GameObject HighwayWerferL;
 
-    private Vector3 machPosi;       //Position der Items
+    private Vector3 machPosi;  // Position der Items
 
-    // Definiert "Vatter" über den Tag "MainCamera" - der in der Szene dieser zugeorndet ist - als GameObject
-    // gLogic erhält alle Komponenten der MainCamera
+    // Definiert "Vatter" über den Tag "MainCamera" - der in der Szene dieser zugeorndet ist - als GameObject / gLogic erhält alle Komponenten der MainCamera:
+
     void Awake()
     {
         Vatter = GameObject.FindGameObjectWithTag("MainCamera");
@@ -32,30 +32,42 @@ public class Erstellerscript : GameLogic
     // Update is called once per frame
     void Update()
     {
+        // Erstellt Spieler-Schiff am Anfang und nach Zerstörug (nicht nach gameover):
+
         if(!gLogic.gameOver && gLogic.macheSpieler)
         {
             Instantiate(Schiffsprefab);
             gLogic.macheSpieler = false;
         }
+
+        // Erstellt Item an Ort an dem Gegner zerstört wurde:
+
         if (gLogic.makeShield)
         {
             gLogic.makeShield = false;
             machPosi = gLogic.hitPosition;
             Instantiate(ShieldAddPrefab, machPosi, Quaternion.identity);
         }
+
+        // Erstellt Item an Ort an dem Gegner zerstört wurde:
+
         if (gLogic.makeShip)
         {
             gLogic.makeShip = false;
             machPosi = transform.position;
             Instantiate(ShipAddPrefab, machPosi, Quaternion.identity);
         }
+
+        // Wenn Spieler gameover ist, beginn von Stage 1:
+
         if (gLogic.gameOver)
         {
-            istStage = 0; //reset damit es anfängt
+            istStage = 0;  //reset damit es anfängt
             gLogic.stage = 1;       
         }
 
-        // dynamisch an Zeit pro Level angepasste Gegnererzeugung
+        // dynamisch an Zeit pro Level angepasste Gegnererzeugung:
+
         float time_pro_stage_1 = time_pro_stage * 0.4f; 
         float time_pro_stage_2 = time_pro_stage * 0.5f; 
         float time_pro_stage_3 = time_pro_stage * 0.7f; 
@@ -64,6 +76,8 @@ public class Erstellerscript : GameLogic
         float time_pro_stage_6 = time_pro_stage * 0.9f; 
         float time_pro_stage_7 = time_pro_stage * 0.25f;
         float time_pro_stage_8 = time_pro_stage * 0.8f; 
+
+        // bei Stagewechsel werden Levelabhängig Gegner erzeugt:
 
         if (gLogic.stage != istStage && !gLogic.gameOver && !gLogic.startPhase)
         {
@@ -85,7 +99,6 @@ public class Erstellerscript : GameLogic
                     }
                     //Level 2
                 case 2:
-                    //instanzieren und werte übergeben
                     {
                         Asteroiden(0f, time_pro_stage_7, 5f); //startzeit, endzeit, wurfrate
                         Asteroiden(time_pro_stage_1, time_pro_stage_8, 0.5f);
@@ -117,7 +130,7 @@ public class Erstellerscript : GameLogic
                         ZivilistenRechts(time_pro_stage_1, time_pro_stage_8, 0.05f);
                         break;
                     }
-
+                    // Ab Level > 4
                 default:
                     {
                         Asteroiden(0f, time_pro_stage_6, 2.5f); //startzeit, endzeit, wurfrate
@@ -133,6 +146,8 @@ public class Erstellerscript : GameLogic
             istStage = gLogic.stage;
         }
     }
+
+    // Methoden die Instanzen der Gegner erzeugen:
 
     void Asteroiden(float start, float ende, float r)
     {

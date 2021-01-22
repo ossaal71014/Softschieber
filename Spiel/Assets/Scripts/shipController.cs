@@ -4,35 +4,26 @@ using UnityEngine;
 public class shipController : MonoBehaviour
 {
     public float maxSpeed = 3f;
-    // instantane Bewegung oder mit Beschleunigung
-    public bool analog = true;
-
-    // Rand berührt
+    public bool analog = true;  // instantane Bewegung oder mit Beschleunigung
     private bool hitleft;
     private bool hitright;
     private bool hitup;
     private bool hitdown;
-
     private float xAchse = 0f;
     private float yAchse = 0f;
-
     private Animator anim;
-
     public ParticleSystem antrieb;
-
-    public int istSchild = 3;                           //Lebenspunkte des Schiffs
-    public GameObject explo;                        //Animation bei Zerstörung des Schiffs (Lebenspunkte des Schiffs fallen auf/unter null)
-
-    public schild schildscript;                     //Schildanimation bei Kollision mit Asteroiden 
-
+    public int istSchild = 3;  // Lebenspunkte des Schiffs
+    public GameObject explo;  // Animation bei Zerstörung des Schiffs (Lebenspunkte des Schiffs fallen auf/unter null)
+    public schild schildscript;  // Schildanimation bei Kollision mit Asteroiden 
     private GameObject Vatter;
     private GameLogic gLogic;
     private GUIScript gui;
+
     // wird vor Startfunktion einmalig ausgeführt
     void Awake()
     {
-        // Komponente vom Tyn Animator
-        anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();  // Komponente vom Typ Animator
         Vatter = GameObject.FindGameObjectWithTag("MainCamera");
         gLogic = Vatter.GetComponent<GameLogic>();
         gui = Vatter.GetComponent<GUIScript>();
@@ -64,22 +55,25 @@ public class shipController : MonoBehaviour
         }
         else
         {
-            // Tastatur abfrage
+            // Tastatur abfrage:
+
             if (!analog)
             {
-                // Raw -> wenn über Nullpunkt hinaus -> 1
+                // Raw -> wenn über Nullpunkt hinaus -> 1:
+
                 xAchse = Input.GetAxisRaw("Horizontal");
                 yAchse = Input.GetAxisRaw("Vertical");
             }
             else
             {
-                // Wert auf Achsen
+                // Wert auf Achsen:
+
                 xAchse = Input.GetAxis("Horizontal");
                 yAchse = Input.GetAxis("Vertical");
             }
 
-            // für Animation
-            // wenn Input "rechts"
+            // für Animation / wenn Input "rechts":
+
             if (Input.GetAxisRaw("Horizontal") > 0f)
             {
                 anim.SetBool("rechts", true);
@@ -98,38 +92,34 @@ public class shipController : MonoBehaviour
                 anim.SetBool("links", false);
             }
 
-            // für Antrieb
-            // Antrieb-Partikel -> länger sichbar wenn Beschleunigung nach vorne, wenn "rückwärts" -> kürzere Sichbarkeit der Partikel
+            // für Antrieb / Antrieb-Partikel -> länger sichbar wenn Beschleunigung nach vorne, wenn "rückwärts" -> kürzere Sichbarkeit der Partikel:
+
             if (Input.GetAxisRaw("Vertical") > 0f)
             {
-#pragma warning disable CS0618 // Typ oder Element ist veraltet
                 antrieb.startLifetime = 0.45f;
-#pragma warning restore CS0618 // Typ oder Element ist veraltet
             }
             else
             {
-#pragma warning disable CS0618 // Typ oder Element ist veraltet
                 antrieb.startLifetime = 0.25f;
-#pragma warning restore CS0618 // Typ oder Element ist veraltet
             }
 
             if (Input.GetAxisRaw("Vertical") < 0f)
             {
-#pragma warning disable CS0618 // Typ oder Element ist veraltet
                 antrieb.startLifetime = 0.07f;
-#pragma warning restore CS0618 // Typ oder Element ist veraltet
             }
 
 
-            // wenn innherhalb der Spielgrenzen
+            // wenn innherhalb der Spielgrenzen:
+
             if (!hitleft && !hitright)
             {
-                // deltaTime -> Zeit zwischen letztem Frame und jetzt
-                transform.Translate(Vector3.right * Time.deltaTime * maxSpeed * xAchse, Space.World);
+                
+                transform.Translate(Vector3.right * Time.deltaTime * maxSpeed * xAchse, Space.World);  // deltaTime -> Zeit zwischen letztem Frame und jetzt
             }
             else
             {
-                // Bewegung nach rechts 
+                // Bewegung nach rechts:
+
                 if (hitleft && xAchse > 0f)
                 {
                     hitleft = false;
@@ -160,8 +150,11 @@ public class shipController : MonoBehaviour
 
     }
 
-    //Treffer-Funktion zieht Schiff leben ab bei Kollision mit Gegner 
-    //Bei Kollision wird Schild-Animation angezeigt
+    /// <summary>
+    /// Treffer-Funktion zieht Schiff Leben ab bei Kollision mit Gegner 
+    /// Bei Kollision wird Schild-Animation angezeigt
+    /// </summary>
+    /// <param name="schaden"></param>
     void Treffer(int schaden)
     {
         istSchild -= schaden;
@@ -169,7 +162,8 @@ public class shipController : MonoBehaviour
         gui.shields = istSchild;
         if (istSchild < 0)
         {
-            //Bei tödlichem Schaden soll Explosion an Ort des Schiffes durchgerührt werden und Schiff wird zerstört
+            //Bei tödlichem Schaden soll Explosion an Ort des Schiffes durchgerührt werden und Schiff wird zerstört:
+
             Instantiate(explo, transform.position, Quaternion.identity);
             Destroy(gameObject);
             gui.shields = 0;
@@ -181,7 +175,10 @@ public class shipController : MonoBehaviour
             }
         }
     }
-    //Eingesammelte Items werden gezählt
+    
+    /// <summary>
+    /// Eingesammelte Items werden gezählt 
+    /// </summary>
     void ShieldAdd()
     {
         istSchild++;
@@ -195,8 +192,11 @@ public class shipController : MonoBehaviour
     {
 
     }
-
-    // Abfrage ob Collider getroffen (wenn Trigger berührt)
+ 
+    /// <summary>
+    /// Abfrage ob Collider getroffen (wenn Trigger berührt) 
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         
