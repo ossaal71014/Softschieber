@@ -3,31 +3,39 @@ using UnityEngine;
 
 public class enemyLoopingScript : MonoBehaviour
 {
-    private bool rolle;
-    public float gegenschub = 3f;
-    private float istGegeschub = 0;
+    private bool rolle;  // Variable für Bewegungs-Aktion
+    public float gegenschub = 3f;  // Variable Gegenschub
+    private float istGegeschub = 0;  // Geschwindugkeit Schub
     private Animator anim;
     public LayerMask layer;
 
-    public float schussrate = 0.8f;
-    public float ersterSchuss = 1.5f;
+    public float schussrate = 0.8f;  // Schussrate
+    public float ersterSchuss = 1.5f;  // erster Schuss
     public GameObject Schuss;
-    private bool jetzt;
-    private bool tot;
+    private bool jetzt;  // Varible für aktuellen Status
+    private bool tot;  // Variable für tod sein
 
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Ruft den Start für des roten Gegners auf
+    /// </summary>
     void Awake()
     {
         anim = GetComponent<Animator>();
     }
+
+    /// <summary>
+    /// Lässt ersten Schuss des Gegners erst nach Zeit "ersterSchuss + varia" zu
+    /// </summary>
     void Start()
     {
         float varia = Random.Range(0f, 0.5f);
         StartCoroutine(WarteSchuss(ersterSchuss + varia));
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Startet das Gegnerschiff mit der festgelegten Schussrate und der Eigenschaft dem Player auszuweichen
+    /// </summary>
     void Update()
     {
         if (transform.parent != null)
@@ -49,7 +57,9 @@ public class enemyLoopingScript : MonoBehaviour
             istGegeschub += Time.deltaTime * 1.5f;
         }
     }
-
+    /// <summary>
+    /// Bewegung der Rolle wird ausgeführt wenn der Player getroffen wird
+    /// </summary>
     private void FixedUpdate()
     {
         Vector2 size = new Vector2(0.5f, 1f);
@@ -66,18 +76,25 @@ public class enemyLoopingScript : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// Zeit zwischen den Schüssen
+    /// </summary>
     IEnumerator WarteSchuss(float z)
     {
         yield return new WaitForSeconds(z);
         jetzt = true;
     }
 
+    /// <summary>
+    /// Tod-Methode
+    /// </summary>
     void Tot()
     {
         tot = true;
     }
-
+    /// <summary>
+    /// Tod-Methode
+    /// </summary>
     void Vaterlos()
     {
         transform.parent = null;

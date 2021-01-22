@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class makeChild : MonoBehaviour
 {
-    // Start is called before the first frame update
+    /// <summary>
+    /// MainCamera als parent-Object festlegen
+    /// </summary>
     void Awake()
     {
         transform.parent = GameObject.FindGameObjectWithTag("MainCamera").transform;

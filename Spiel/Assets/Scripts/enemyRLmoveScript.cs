@@ -10,31 +10,38 @@ public class enemyRLmoveScript : MonoBehaviour
     public GameObject Schuss;
     private bool jetzt;
     private bool tot;
+
     // Start is called before the first frame update
+
     void Start()
     {
-        //Wenn enemy von rechts kommt, dann fliege auch nach links
+        // Wenn ein "enemy" von rechts kommt, dann fliege ebenfalls nach links :
+
         if (!vonLinks)
         {
             speed *= -1;
         }
-        StartCoroutine(WarteSchuss(ersterSchuss));              //Fange erst nach ablauf der Zeit, angegeben von "ersterSchuss", an zu schießen
+        StartCoroutine(WarteSchuss(ersterSchuss));  // Fange erst nach ablauf der Zeit, angegeben von "ersterSchuss", an zu schießen
     }
 
     // Update is called once per frame
+
     void Update()
     {
-        transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);       //Bewege Gegner
+        transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);  //Bewege den Gegner horizontal
 
-        //Ist Gegner nicht zerstört soll er nach bestimmter zeit schießen
+        //: Ist der Gegner nicht zerstört soll er nach bestimmter zeit schießen. :
+
         if (jetzt && !tot)
         {
             jetzt = false;
-            //Gegner soll nur innerhalb des sichtbaren bereichs schießen
+
+            //: Der Gegner soll nur innerhalb des sichtbaren bereichs schießen. :
+
             if (transform.position.x > -3f && transform.position.x <3f)
             {
-                Instantiate(Schuss, transform.position, Quaternion.identity);       //Schieße auf Spieler
-                StartCoroutine(WarteSchuss(1 / schussrate));                        //Schieße in Abhängigkeit der Schussrate wiederholt
+                Instantiate(Schuss, transform.position, Quaternion.identity);  //Schieße auf Spieler
+                StartCoroutine(WarteSchuss(1 / schussrate));  //Schieße in Abhängigkeit der Schussrate wiederholt
             }
         }
     }
