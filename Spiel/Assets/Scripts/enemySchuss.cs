@@ -11,9 +11,10 @@ public class enemySchuss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");        //Spüre Position des Spielers auf
+        player = GameObject.FindGameObjectWithTag("Player");  // Spüre Position des Spielers auf
 
-        //Falls Spieler nicht gefunden wurde soll der Schuss sich gerade nach unten bewegen
+        //Falls Spieler nicht gefunden wurde soll der Schuss sich gerade nach unten bewegen:
+
         if (player == null)
         {
             richtung = -Vector3.up;
@@ -21,14 +22,14 @@ public class enemySchuss : MonoBehaviour
         }
         else
         {
-            richtung = (player.transform.position - transform.position).normalized;             //Richtung des Schusses wird berechnet und genormt, um Geschwindigkeit nicht zu beeinflussen
+            richtung = (player.transform.position - transform.position).normalized;  // Richtung des Schusses wird berechnet und genormt, um Geschwindigkeit nicht zu beeinflussen
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(richtung * Time.deltaTime * speed);                                 //Schuss fliegt
+        transform.Translate(richtung * Time.deltaTime * speed);  //  Schuss fliegt
     }
 
     /// <summary>
@@ -37,13 +38,15 @@ public class enemySchuss : MonoBehaviour
     /// <param name="other"></param>
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Ist getroffenens Objekt Spieler?
+        //Ist getroffenens Objekt Spieler?:
+
         if (other.CompareTag("Player"))
         {
-            Destroy(gameObject);                                                                //Zerstöre Projektil
-            other.SendMessage("Treffer", schaden, SendMessageOptions.DontRequireReceiver);      //Übermittle Schaden an Spieler
+            Destroy(gameObject);  // Zerstöre Projektil
+            other.SendMessage("Treffer", schaden, SendMessageOptions.DontRequireReceiver);  // Übermittle Schaden an Spieler
         }
-        //Bewegt sich Projektil ausßerhalb der Spielzone?
+        //Bewegt sich Projektil ausßerhalb der Spielzone?:
+
         if (other.CompareTag("killzone"))
         {
             Destroy(gameObject);

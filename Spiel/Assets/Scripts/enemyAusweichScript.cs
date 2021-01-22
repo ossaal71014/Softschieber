@@ -47,6 +47,8 @@ public class enemyAusweichScript : MonoBehaviour
                 StartCoroutine(WarteSchuss(1/schussrate + varia));
             }
         }
+
+        // Leitet Ausweichmanöver ein
         transform.Translate(-Vector2.up * Time.deltaTime);
         if (nachrechts)
         {
@@ -56,7 +58,7 @@ public class enemyAusweichScript : MonoBehaviour
         {
             transform.Translate(Vector3.left * Time.deltaTime * istAusweich);
         }
-        if (istAusweich<maxAusweich && (nachlinks || nachrechts))
+        if (istAusweich < maxAusweich && (nachlinks || nachrechts))
         {
             istAusweich += (2f * Time.deltaTime);
         }
